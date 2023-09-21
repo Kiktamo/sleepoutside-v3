@@ -6,10 +6,9 @@ function addProductToCart(product) {
   if (cart === null) {
     setLocalStorage("so-cart", [product]);
   } else {
-    cart.push(product)
-    setLocalStorage("so-cart", cart)
+    cart.push(product);
+    setLocalStorage("so-cart", cart);
   }
-  
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
