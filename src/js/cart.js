@@ -2,8 +2,14 @@ import { getLocalStorage } from './utils.mjs';
 
 function renderCartContents() {
   const cartItems = getLocalStorage('so-cart');
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector('.product-list').innerHTML = htmlItems.join('');
+  // check that cartItems is a non-empty array
+  if (cartItems && cartItems.length > 0) {
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector('.product-list').innerHTML = htmlItems.join('');
+  } else {
+    // Handle the case when the cart is empty
+    document.querySelector('.product-list').innerHTML = 'Your cart is empty.';
+  }
 }
 
 function cartItemTemplate(item) {
