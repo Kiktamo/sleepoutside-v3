@@ -1,3 +1,3 @@
-import  updateCartCount  from './updateCartCount.mjs';
+import updateCartCount from './updateCartCount.mjs';
 
 updateCartCount();

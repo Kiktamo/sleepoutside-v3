@@ -1,7 +1,7 @@
 import { getLocalStorage } from './utils.mjs';
 
 // Function to update the cart count
- export default function updateCartCount() {
+export default function updateCartCount() {
   const count = getLocalStorage('so-cart').length;
   const cartCountElement = document.querySelector('.cart-count');
   // Check if the count is greater than zero
