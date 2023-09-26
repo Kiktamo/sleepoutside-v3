@@ -11,6 +11,7 @@ function addProductToCart(product) {
   cartArray.push(product);
   // store it
   setLocalStorage('so-cart', cartArray);
+
 }
 
 // add to cart button event handler
