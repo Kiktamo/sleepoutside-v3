@@ -7,15 +7,24 @@ function renderCartContents() {
   if (cartItems && cartItems.length > 0) {
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector('.product-list').innerHTML = htmlItems.join('');
-    
+
+    //Remove hidden status on footer
+    document
+      .querySelector('.cart-footer-hidden')
+      .setAttribute('class', 'cart-footer');
+
     // Add subtotal
-    let subtotal = 0
-    cartItems.forEach(element => {
-      subtotal += element.FinalPrice
+    let subtotal = 0;
+    cartItems.forEach((element) => {
+      subtotal += element.FinalPrice;
     });
 
-    document.querySelector('.products').insertAdjacentHTML('beforeend', `<span class='cart-subtotal'> <h3>Subtotal:</h3> <b>$${subtotal}</b> </span>`)
-
+    document
+      .querySelector('.cart-footer')
+      .insertAdjacentHTML(
+        'afterBegin',
+        `<p class="cart-total">Total: ${subtotal}</p></span>`
+      );
   } else {
     // Handle the case when the cart is empty
     document.querySelector('.product-list').innerHTML = 'Your cart is empty.';
