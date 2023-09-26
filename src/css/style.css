@@ -1,6 +1,6 @@
 :root {
   --font-body: Arial, Helvetica, sans-serif;
-  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-headline: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   /* colors */
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
@@ -110,6 +110,21 @@ button {
   fill: gray;
 }
 
+.cart-count {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  background-color: rgb(239, 168, 36); /* We can adjust the background color */
+  color: black;
+  font-size: 11px;
+  border-radius: 50%;
+  padding: 2px 4px; /* Adjust padding as needed */
+}
+
+/* Hide the cart-count by default */
+.hidden {
+  display: none;
+}
 /* End cart icon styles */
 
 .mission {
