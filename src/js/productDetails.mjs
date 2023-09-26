@@ -1,5 +1,6 @@
 import { setLocalStorage } from './utils.mjs';
 import { getLocalStorage } from './utils.mjs';
+import  updateCartCount  from './updateCartCount.mjs';
 import { findProductById } from './productData.mjs';
 
 // This variable will store the current product data
@@ -55,6 +56,7 @@ function addProductToCart(product) {
    cartArray.push(product);
    // store it
    setLocalStorage('so-cart', cartArray);
+   updateCartCount();
  }
  
  // add to cart button event handler
