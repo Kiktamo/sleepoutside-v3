@@ -121,6 +121,10 @@ button {
   padding: 2px 4px; /* Adjust padding as needed */
 }
 
+.cart-subtotal h3{
+  display: inline-block;
+}
+
 /* Hide the cart-count by default */
 .hidden {
   display: none;

@@ -7,6 +7,15 @@ function renderCartContents() {
   if (cartItems && cartItems.length > 0) {
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector('.product-list').innerHTML = htmlItems.join('');
+    
+    // Add subtotal
+    let subtotal = 0
+    cartItems.forEach(element => {
+      subtotal += element.FinalPrice
+    });
+
+    document.querySelector('.products').insertAdjacentHTML('beforeend', `<span class='cart-subtotal'> <h3>Subtotal:</h3> <b>$${subtotal}</b> </span>`)
+
   } else {
     // Handle the case when the cart is empty
     document.querySelector('.product-list').innerHTML = 'Your cart is empty.';
