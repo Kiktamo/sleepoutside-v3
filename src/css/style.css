@@ -120,6 +120,24 @@ button {
   border-radius: 50%;
   padding: 2px 4px; /* Adjust padding as needed */
 }
+/* End cart icon styles */
+
+/* Style the remove icon (X) as a cancel button */
+.remove-item {
+  display: inline-block;
+  color: #f44336; /* Red text color */
+  font-weight: bold;
+  border: none;
+  width: 24px; /* Adjust the size as needed */
+  height: 24px; /* Adjust the size as needed */
+  font-size: 16px; /* Adjust the font size as needed */
+  text-align: center;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 0.3s; /* Smooth color transition on hover */
+  margin-right: 8px; /* Add some spacing between items */
+}
+
 
 .cart-footer-hidden {
   visibility: hidden;
@@ -128,8 +146,12 @@ button {
 /* Hide the cart-count by default */
 .hidden {
   display: none;
+
+/* Hover effect for the remove icon */
+.remove-item:hover {
+  color: #d32f2f; /* Darker red on hover */
+
 }
-/* End cart icon styles */
 
 .mission {
   padding: 0 0.5em;

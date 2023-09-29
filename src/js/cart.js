@@ -1,4 +1,4 @@
-import { getLocalStorage } from './utils.mjs';
+import { setLocalStorage, getLocalStorage } from './utils.mjs';
 import updateCartCount from './updateCartCount.mjs';
 
 function renderCartContents() {
@@ -29,10 +29,20 @@ function renderCartContents() {
     // Handle the case when the cart is empty
     document.querySelector('.product-list').innerHTML = 'Your cart is empty.';
   }
+
+  const removeButtons = document.querySelectorAll('.remove-item');
+  removeButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const itemIdToRemove = event.currentTarget.getAttribute('data-id');
+      removeItemFromCart(itemIdToRemove);
+      renderCartContents(); // Re-render the cart after removal
+    });
+  });
 }
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
+  <span class="remove-item" data-id="${item.Id}">remove</span>
   <a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -48,6 +58,13 @@ function cartItemTemplate(item) {
 </li>`;
 
   return newItem;
+}
+
+function removeItemFromCart(itemIdToRemove) {
+  const cartItems = getLocalStorage('so-cart');
+  const updatedCart = cartItems.filter((item) => item.Id !== itemIdToRemove);
+  setLocalStorage('so-cart', updatedCart);
+  updateCartCount();
 }
 
 renderCartContents();
