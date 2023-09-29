@@ -143,9 +143,6 @@ button {
   visibility: hidden;
 }
 
-/* Hide the cart-count by default */
-.hidden {
-  display: none;
 
 /* Hover effect for the remove icon */
 .remove-item:hover {
