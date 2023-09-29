@@ -120,11 +120,6 @@ button {
   border-radius: 50%;
   padding: 2px 4px; /* Adjust padding as needed */
 }
-
-/* Hide the cart-count by default */
-.hidden {
-  display: none;
-}
 /* End cart icon styles */
 
 /* Style the remove icon (X) as a cancel button */
