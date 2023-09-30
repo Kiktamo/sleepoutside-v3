@@ -1,7 +1,4 @@
-import {
-  setLocalStorage,
-  getLocalStorage
-} from './utils.mjs';
+import { setLocalStorage, getLocalStorage } from './utils.mjs';
 import updateCartCount from './updateCartCount.mjs';
 
 function renderCartContents() {
@@ -12,7 +9,6 @@ function renderCartContents() {
     document.querySelector('.product-list').innerHTML = htmlItems.join('');
     updateCartFooter(cartItems);
     renderCartSubtotal(cartItems);
-
   } else {
     // Handle the case when the cart is empty
     updateCartFooter(cartItems);
@@ -30,7 +26,6 @@ function renderCartContents() {
 }
 
 function renderCartSubtotal(cartItems) {
-
   // Add subtotal
   let subtotal = 0;
 
@@ -38,10 +33,10 @@ function renderCartSubtotal(cartItems) {
     subtotal += element.FinalPrice;
   });
 
-  const cartTotal = document.querySelector('.cart-total')
+  const cartTotal = document.querySelector('.cart-total');
 
   if (cartTotal) {
-    cartTotal.innerHTML = `Total: ${subtotal}`
+    cartTotal.innerHTML = `Total: ${subtotal}`;
   } else {
     document
       .querySelector('.cart-footer')
@@ -53,17 +48,17 @@ function renderCartSubtotal(cartItems) {
 }
 
 function updateCartFooter(cartItems) {
-  const hidden = document.querySelector('.cart-footer-hidden')
-  const count = cartItems.length
+  const hidden = document.querySelector('.cart-footer-hidden');
+  const count = cartItems.length;
 
   if (count > 0 && hidden) {
     hidden.setAttribute('class', 'cart-footer');
-  } if (count <= 0 && !hidden) {
-    document
-    .querySelector('.cart-footer')
-    .setAttribute('class', 'cart-footer-hidden');
   }
-
+  if (count <= 0 && !hidden) {
+    document
+      .querySelector('.cart-footer')
+      .setAttribute('class', 'cart-footer-hidden');
+  }
 }
 
 function cartItemTemplate(item) {

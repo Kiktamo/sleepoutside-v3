@@ -138,16 +138,13 @@ button {
   margin-right: 8px; /* Add some spacing between items */
 }
 
-
 .cart-footer-hidden {
   visibility: hidden;
 }
 
-
 /* Hover effect for the remove icon */
 .remove-item:hover {
   color: #d32f2f; /* Darker red on hover */
-
 }
 
 .mission {
