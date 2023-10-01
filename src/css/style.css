@@ -110,6 +110,13 @@ button {
   fill: gray;
 }
 
+.cart img {
+  width: 25px;
+}
+.cart:hover img {
+  fill: gray;
+}
+
 .cart-count {
   position: absolute;
   top: 10px;
