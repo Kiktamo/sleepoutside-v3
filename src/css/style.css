@@ -197,6 +197,23 @@ button {
   margin: auto;
 }
 
+.discount {
+  color: #f00;
+  margin-bottom: 0.3em;
+}
+
+.discount b {
+  color: #fff;
+  background-color: #f00;
+  border-radius: 0.2em;
+  padding: 0.2em;
+}
+
+.list-price {
+  margin-top: 0.2em;
+  font-size: var(--small-font);
+}
+
 .product-detail img {
   width: 100%;
 }

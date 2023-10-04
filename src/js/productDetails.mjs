@@ -42,7 +42,22 @@ function renderProductDetails(product) {
   productNameWithoutBrand.textContent = product.NameWithoutBrand;
   productImage.src = product.Image;
   productImage.alt = product.Name;
-  productFinalPrice.textContent = `Price: $${product.FinalPrice}`;
+
+  // Determine discount if there's a difference between the final price and list price.
+  if (product.FinalPrice < product.ListPrice) {
+    const discount =
+      ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
+    productFinalPrice.innerHTML = `<div class='discount'><b>${discount.toFixed(
+      0
+    )}% off</b> deal</div>Price: $${product.FinalPrice}
+    <div class='list-price'><i>List Price: <s>$${
+      product.ListPrice
+    }</i></s></div>`;
+  } else {
+    // Do the default if there's no discount
+    productFinalPrice.textContent = `Price: $${product.FinalPrice}`;
+  }
+
   productColorName.textContent = `Color: ${product.Colors[0].ColorName}`;
   productDescriptionHtmlSimple.innerHTML = product.DescriptionHtmlSimple;
 
