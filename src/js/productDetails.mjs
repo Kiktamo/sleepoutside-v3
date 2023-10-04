@@ -17,10 +17,12 @@ export default async function productDetails(productId) {
     document
       .getElementById('addToCart')
       .addEventListener('click', addToCartHandler);
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Error fetching or rendering product details:', error);
-  }
+    } catch (error) { 
+      // Product not found
+      const errorMessageDiv = document.getElementById('error-message');
+      errorMessageDiv.textContent = 'Product not found.';
+      errorMessageDiv.style.display = 'flex'; // Show the Error Message centered
+    }
 }
 
 function renderProductDetails(product) {
@@ -48,6 +50,7 @@ function renderProductDetails(product) {
 
   // Set the data-id attribute of the "Add to Cart" button with the product's ID
   addToCartButton.setAttribute('data-id', product.Id);
+  addToCartButton.style.display = 'block'; // Show the Add button
 }
 
 function addProductToCart(product) {
