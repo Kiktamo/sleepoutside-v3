@@ -1,18 +1,13 @@
-import {
-  qs
-} from './utils.mjs';
-import {
-  getData
-} from './productData.mjs';
-
+import { qs } from './utils.mjs';
+import { getData } from './productData.mjs';
 
 export default async function productList(selector, category) {
   const product_list = qs(selector);
   const products = await getData(category);
-  console.log(products)
+
   const topProductIds = await getData("top-products");
-  const topProducts = [];
-  renderList(products, product_list);
+  const topProducts = await filterProducts(products, topProductIds); // Filter the products
+  renderList(topProducts, product_list);
 }
 
 function productCardTemplate(product) {
@@ -33,12 +28,6 @@ function renderList(list, el) {
   el.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
 }
 
-async function filterProducts(product, topProducts) {
-  found = false;
-  topProducts.array.forEach(element => {
-    if (product.Id === element) {
-      found = true;
-    }
-  });
-  return;
+async function filterProducts(products, topProductIds) {
+  return products.filter(product => topProductIds.includes(product.Id));
 }
