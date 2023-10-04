@@ -5,7 +5,7 @@ export default async function productList(selector, category) {
   const product_list = qs(selector);
   const products = await getData(category);
 
-  const topProductIds = await getData("top-products");
+  const topProductIds = await getData('top-products');
   const topProducts = await filterProducts(products, topProductIds); // Filter the products
   renderList(topProducts, product_list);
 }
