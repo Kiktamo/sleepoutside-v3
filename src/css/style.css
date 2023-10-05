@@ -272,3 +272,18 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+#error-message {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  display: none;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 50vh; /* 50% of viewport height to center in top half vertically */
+}
+
+#addToCart {
+  display: none;
+}
