@@ -1,5 +1,6 @@
 import { qs } from './utils.mjs';
 import { getData } from './productData.mjs';
+import { renderListWithTemplate } from './utils.mjs';
 
 export default async function productList(selector, category) {
   const product_list = qs(selector);
@@ -7,7 +8,9 @@ export default async function productList(selector, category) {
 
   const topProductIds = await getData('top-products');
   const topProducts = await filterProducts(products, topProductIds); // Filter the products
-  renderList(topProducts, product_list);
+
+  // render out the top product list to the element
+  renderListWithTemplate(productCardTemplate, product_list, topProducts);
 }
 
 function productCardTemplate(product) {
@@ -21,11 +24,6 @@ function productCardTemplate(product) {
     <h2 class="card__name">${product.NameWithoutBrand}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
   </li>`
-}
-
-function renderList(list, el) {
-  const htmlStrings = list.map(productCardTemplate);
-  el.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
 }
 
 async function filterProducts(products, topProductIds) {
