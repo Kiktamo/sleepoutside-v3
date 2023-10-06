@@ -15,11 +15,11 @@ function renderCartContents() {
     document.querySelector('.product-list').innerHTML = 'Your cart is empty.';
   }
 
-  const removeButtons = document.querySelectorAll('.remove-item');
+  const removeButtons = document.querySelectorAll('.remove-product');
   removeButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
-      const itemIdToRemove = event.currentTarget.getAttribute('data-id');
-      removeItemFromCart(itemIdToRemove);
+      const productIdToRemove = event.currentTarget.getAttribute('data-id');
+      removeProductFromCart(productIdToRemove);
       renderCartContents(); // Re-render the cart after removal
     });
   });
@@ -61,29 +61,50 @@ function updateCartFooter(cartItems) {
   }
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <span class="remove-item" data-id="${item.Id}">remove</span>
-  <a href="#" class="cart-card__image">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
-
-  return newItem;
+function cartItemTemplate(product) {
+  if (product.FinalPrice < product.ListPrice) {
+    const discount =
+    ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
+    return `<li class="cart-card divider">
+    <span class="remove-product" data-id="${product.Id}">remove</span>
+    <a href="#" class="cart-card__image">
+      <img
+        src="${product.Image}"
+        alt="${product.Name}"
+      />
+    </a>
+    <a href="#">
+      <h2 class="card__name">${product.Name}</h2>
+    </a>
+    <p class="cart-card__color">${product.Colors[0].ColorName}</p>
+    <p class="cart-card__quantity">qty: 1</p>
+    <p class="cart-card__price">$${product.FinalPrice}
+      <span class='list-price'><i><s>$${product.ListPrice}</i></s></span>
+      <span class='discount-small'><b>${discount.toFixed(0)}% off</b></span>
+    </p>
+  </li>`;    
+  } else {
+    return `<li class="cart-card divider">
+    <span class="remove-product" data-id="${product.Id}">remove</span>
+    <a href="#" class="cart-card__image">
+      <img
+        src="${product.Image}"
+        alt="${product.Name}"
+      />
+    </a>
+    <a href="#">
+      <h2 class="card__name">${product.Name}</h2>
+    </a>
+    <p class="cart-card__color">${product.Colors[0].ColorName}</p>
+    <p class="cart-card__quantity">qty: 1</p>
+    <p class="cart-card__price">$${product.FinalPrice}</p>
+  </li>`;
+  }
 }
 
-function removeItemFromCart(itemIdToRemove) {
+function removeProductFromCart(productIdToRemove) {
   const cartItems = getLocalStorage('so-cart');
-  const updatedCart = cartItems.filter((item) => item.Id !== itemIdToRemove);
+  const updatedCart = cartItems.filter((product) => product.Id !== productIdToRemove);
   setLocalStorage('so-cart', updatedCart);
   updateCartCount();
 }
