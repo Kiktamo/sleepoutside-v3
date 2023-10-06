@@ -64,7 +64,7 @@ function updateCartFooter(cartItems) {
 function cartItemTemplate(product) {
   if (product.FinalPrice < product.ListPrice) {
     const discount =
-    ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
+      ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
     return `<li class="cart-card divider">
     <span class="remove-product" data-id="${product.Id}">remove</span>
     <a href="#" class="cart-card__image">
@@ -82,7 +82,7 @@ function cartItemTemplate(product) {
       <span class='list-price'><i><s>$${product.ListPrice}</i></s></span>
       <span class='discount-small'><b>${discount.toFixed(0)}% off</b></span>
     </p>
-  </li>`;    
+  </li>`;
   } else {
     return `<li class="cart-card divider">
     <span class="remove-product" data-id="${product.Id}">remove</span>
@@ -104,7 +104,9 @@ function cartItemTemplate(product) {
 
 function removeProductFromCart(productIdToRemove) {
   const cartItems = getLocalStorage('so-cart');
-  const updatedCart = cartItems.filter((product) => product.Id !== productIdToRemove);
+  const updatedCart = cartItems.filter(
+    (product) => product.Id !== productIdToRemove
+  );
   setLocalStorage('so-cart', updatedCart);
   updateCartCount();
 }

@@ -1,12 +1,6 @@
-import {
-  qs
-} from './utils.mjs';
-import {
-  getData
-} from './productData.mjs';
-import {
-  renderListWithTemplate
-} from './utils.mjs';
+import { qs } from './utils.mjs';
+import { getData } from './productData.mjs';
+import { renderListWithTemplate } from './utils.mjs';
 
 export default async function productList(selector, category) {
   const product_list = qs(selector);
@@ -36,7 +30,7 @@ function productCardTemplate(product) {
       <div class='discount-small'><b>${discount.toFixed(0)}% off</b>
       </div></p>
       </a>
-    </li>`
+    </li>`;
   } else {
     return `<li class="product-card">
     <a href="product_pages/index.html?product=${product.Id}">
@@ -47,10 +41,10 @@ function productCardTemplate(product) {
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.NameWithoutBrand}</h2>
     <p class="product-card__price">$${product.FinalPrice}</p></a>
-  </li>`
+  </li>`;
   }
 }
 
 async function filterProducts(products, topProductIds) {
-  return products.filter(product => topProductIds.includes(product.Id));
+  return products.filter((product) => topProductIds.includes(product.Id));
 }
