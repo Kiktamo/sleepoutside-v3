@@ -103,10 +103,10 @@ button {
   text-align: center;
 }
 
-.cart img {
+.cart svg {
   width: 25px;
 }
-.cart:hover img {
+.cart:hover svg {
   fill: gray;
 }
 
