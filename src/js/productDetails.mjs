@@ -17,12 +17,12 @@ export default async function productDetails(productId) {
     document
       .getElementById('addToCart')
       .addEventListener('click', addToCartHandler);
-    } catch (error) { 
-      // Product not found
-      const errorMessageDiv = document.getElementById('error-message');
-      errorMessageDiv.textContent = 'Product not found.';
-      errorMessageDiv.style.display = 'flex'; // Show the Error Message centered
-    }
+  } catch (error) {
+    // Product not found
+    const errorMessageDiv = document.getElementById('error-message');
+    errorMessageDiv.textContent = 'Product not found.';
+    errorMessageDiv.style.display = 'flex'; // Show the Error Message centered
+  }
 }
 
 function renderProductDetails(product) {
