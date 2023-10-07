@@ -81,6 +81,28 @@ header {
   color: var(--tertiary-color);
 }
 
+#searchForm {
+  display: flex;
+  align-items: center;
+}
+
+#searchInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+}
+
 button {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
