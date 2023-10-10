@@ -47,8 +47,8 @@ export function renderListWithTemplate(
 export async function renderWithTemplate(
   templateFn,
   parentElement,
-  data,
   callback,
+  data,
   position = 'afterbegin',
   clear = true
 ) {
@@ -57,29 +57,29 @@ export async function renderWithTemplate(
   }
   const htmlString = await templateFn(data);
   parentElement.insertAdjacentHTML(position, htmlString);
-  if(callback) {
+
+  if (callback) {
     callback(data);
-}
+  }
 }
 
 function loadTemplate(path) {
   return async function () {
-      const res = await fetch(path);
-      if (res.ok) {
+    const res = await fetch(path);
+    if (res.ok) {
       const html = await res.text();
       return html;
-      }
+    }
   };
 }
 
 export async function loadHeaderFooter() {
-  const headerTemplateFn = loadTemplate("/partials/header.html");
-  const footerTemplateFn = loadTemplate("/partials/footer.html");
-  
+  const headerTemplateFn = loadTemplate('/partials/header.html');
+  const footerTemplateFn = loadTemplate('/partials/footer.html');
+
   const headerEl = document.querySelector('#main-header');
   const footerEl = document.querySelector('#main-footer');
 
   renderWithTemplate(headerTemplateFn, headerEl, updateCartCount);
   renderWithTemplate(footerTemplateFn, footerEl);
-  
 }
