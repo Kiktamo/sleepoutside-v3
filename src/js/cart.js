@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from './utils.mjs';
+import { setLocalStorage, getLocalStorage, loadHeaderFooter } from './utils.mjs';
 import updateCartCount from './updateCartCount.mjs';
 
 function renderCartContents() {
@@ -111,5 +111,5 @@ function removeProductFromCart(productIdToRemove) {
   updateCartCount();
 }
 
+loadHeaderFooter();
 renderCartContents();
-updateCartCount();

@@ -1,6 +1,6 @@
-import { setLocalStorage, getLocalStorage } from './utils.mjs';
-import updateCartCount from './updateCartCount.mjs';
+import { setLocalStorage, getLocalStorage, loadHeaderFooter } from './utils.mjs';
 import { findProductById } from './productData.mjs';
+import updateCartCount from './updateCartCount.mjs';
 
 // This variable will store the current product data
 let currentProduct;
