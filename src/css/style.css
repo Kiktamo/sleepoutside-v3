@@ -26,7 +26,8 @@ img {
   max-width: 100%;
 }
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   padding: 0 10px;
 }
@@ -38,6 +39,7 @@ header {
   font-size: 30px;
   text-align: right;
   font-family: var(--font-headline);
+  grid-column: 1/2;
 }
 .logo img {
   width: 60px;
@@ -81,21 +83,26 @@ header {
   color: var(--tertiary-color);
 }
 
+/* Search Bar css */
 #searchForm {
   display: flex;
-  align-items: center;
+  position: fixed;
+  margin-top: 0.5rem;
+  margin-left: 12rem;
 }
 
+#searchInput:focus {
+  width: 70%;
+}
 #searchInput {
-  flex-grow: 1;
-  padding: 10px;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-right: 10px;
+  width: 30%;
 }
 
 .search-button {
-  padding: 10px 20px;
+  padding: 0.5rem;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -110,9 +117,26 @@ button {
   margin: auto;
   display: block;
   border: 0;
-  font-size: var(--large-font);
   cursor: pointer;
 }
+
+@media (max-width: 470px) {
+  header {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  nav {
+    display: grid;
+    grid-row: 2/3;
+    grid-column: 1/3;
+    justify-content: center;
+  }
+  #searchInput {
+    width: 100%;
+  }
+}
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
@@ -121,8 +145,11 @@ button {
 /* Cart icon styles */
 .cart {
   padding-top: 1em;
-  position: relative;
-  text-align: center;
+  position: fixed;
+  top: 0em;
+  right: 1em;
+  text-align: right;
+  grid-column: 2/3;
 }
 
 .cart img {
