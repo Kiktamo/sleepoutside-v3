@@ -111,7 +111,6 @@ export default function ShoppingCart() {
       ShoppingCart(); // Re-render the cart after removal
     });
   });
-
 }
 
 function cartItemTemplate(product) {
@@ -127,16 +126,22 @@ function cartItemTemplate(product) {
       <h2 class="card__name">${product.Name}</h2>
     </a>
     <p class="cart-card__color">${product.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: <span data-id="${product.Id}" class="decrease-quantity">-</span> ${product.quantity} <span data-id="${product.Id}" class="increase-quantity">+</span></p>
-    <p class="cart-card__price">$${(product.FinalPrice * product.quantity).toFixed(2)}`;
+    <p class="cart-card__quantity">qty: <span data-id="${
+      product.Id
+    }" class="decrease-quantity">-</span> ${product.quantity} <span data-id="${
+    product.Id
+  }" class="increase-quantity">+</span></p>
+    <p class="cart-card__price">$${(
+      product.FinalPrice * product.quantity
+    ).toFixed(2)}`;
 
   if (product.FinalPrice < product.ListPrice) {
     const discount =
       ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
     return `${baseTemplate}
-      <span class='list-price'><i><s>$${
-        (product.ListPrice * product.quantity).toFixed(2)
-      }</i></s></span>
+      <span class='list-price'><i><s>$${(
+        product.ListPrice * product.quantity
+      ).toFixed(2)}</i></s></span>
       <span class='discount-small'><b>${discount.toFixed(0)}% off</b></span>
     </p>
   </li>`;
