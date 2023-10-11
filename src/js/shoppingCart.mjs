@@ -16,7 +16,7 @@ function renderCartSubtotal(cartItems) {
   const cartTotal = document.querySelector('.cart-total');
 
   if (cartTotal) {
-    cartTotal.innerHTML = `Total: ${subtotal}`;
+    cartTotal.innerHTML = `Total: ${subtotal.toFixed(2)}`;
   } else {
     document
       .querySelector('.cart-footer')
@@ -43,17 +43,30 @@ function updateCartFooter(cartItems) {
 
 function removeProductFromCart(productIdToRemove) {
   const cartItems = getLocalStorage('so-cart');
-  const existingItem = cartItems.find((item) => item.Id === productIdToRemove);
+  const updatedCart = cartItems.filter(
+    (product) => product.Id !== productIdToRemove
+  );
+  setLocalStorage('so-cart', updatedCart);
+  updateCartCount();
+}
 
+function decreaseQuantityInCart(productId) {
+  const cartItems = getLocalStorage('so-cart');
+  const existingItem = cartItems.find((item) => item.Id === productId);
   existingItem.quantity--;
   if (existingItem.quantity <= 0) {
-    const updatedCart = cartItems.filter(
-      (product) => product.Id !== productIdToRemove
-    );
-    setLocalStorage('so-cart', updatedCart);
+    removeProductFromCart(productId);
   } else {
     setLocalStorage('so-cart', cartItems);
+    updateCartCount();
   }
+}
+
+function increaseQuantityInCart(productId) {
+  const cartItems = getLocalStorage('so-cart');
+  const existingItem = cartItems.find((item) => item.Id === productId);
+  existingItem.quantity++;
+  setLocalStorage('so-cart', cartItems);
   updateCartCount();
 }
 
@@ -80,6 +93,25 @@ export default function ShoppingCart() {
       ShoppingCart(); // Re-render the cart after removal
     });
   });
+
+  const increaseButtons = document.querySelectorAll('.increase-quantity');
+  increaseButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const productId = event.currentTarget.getAttribute('data-id');
+      increaseQuantityInCart(productId);
+      ShoppingCart(); // Re-render the cart after removal
+    });
+  });
+
+  const decreaseButtons = document.querySelectorAll('.decrease-quantity');
+  decreaseButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const productId = event.currentTarget.getAttribute('data-id');
+      decreaseQuantityInCart(productId);
+      ShoppingCart(); // Re-render the cart after removal
+    });
+  });
+
 }
 
 function cartItemTemplate(product) {
@@ -95,15 +127,15 @@ function cartItemTemplate(product) {
       <h2 class="card__name">${product.Name}</h2>
     </a>
     <p class="cart-card__color">${product.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: ${product.quantity}</p>
-    <p class="cart-card__price">$${product.FinalPrice * product.quantity}`;
+    <p class="cart-card__quantity">qty: <span data-id="${product.Id}" class="decrease-quantity">-</span> ${product.quantity} <span data-id="${product.Id}" class="increase-quantity">+</span></p>
+    <p class="cart-card__price">$${(product.FinalPrice * product.quantity).toFixed(2)}`;
 
   if (product.FinalPrice < product.ListPrice) {
     const discount =
       ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
     return `${baseTemplate}
       <span class='list-price'><i><s>$${
-        product.ListPrice * product.quantity
+        (product.ListPrice * product.quantity).toFixed(2)
       }</i></s></span>
       <span class='discount-small'><b>${discount.toFixed(0)}% off</b></span>
     </p>
