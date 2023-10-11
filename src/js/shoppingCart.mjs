@@ -10,7 +10,7 @@ function renderCartSubtotal(cartItems) {
   let subtotal = 0;
 
   cartItems.forEach((element) => {
-    subtotal += element.FinalPrice;
+    subtotal += element.FinalPrice * element.quantity;
   });
 
   const cartTotal = document.querySelector('.cart-total');
@@ -43,10 +43,17 @@ function updateCartFooter(cartItems) {
 
 function removeProductFromCart(productIdToRemove) {
   const cartItems = getLocalStorage('so-cart');
-  const updatedCart = cartItems.filter(
-    (product) => product.Id !== productIdToRemove
-  );
-  setLocalStorage('so-cart', updatedCart);
+  const existingItem = cartItems.find(item => item.Id === productIdToRemove);
+
+  existingItem.quantity--;
+  if (existingItem.quantity <= 0) {
+    const updatedCart = cartItems.filter(
+      (product) => product.Id !== productIdToRemove
+    );
+    setLocalStorage('so-cart', updatedCart);
+  } else {
+    setLocalStorage('so-cart', cartItems);
+  }
   updateCartCount();
 }
 
@@ -88,14 +95,14 @@ function cartItemTemplate(product) {
       <h2 class="card__name">${product.Name}</h2>
     </a>
     <p class="cart-card__color">${product.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: 1</p>
-    <p class="cart-card__price">$${product.FinalPrice}`;
+    <p class="cart-card__quantity">qty: ${product.quantity}</p>
+    <p class="cart-card__price">$${product.FinalPrice * product.quantity}`;
 
   if (product.FinalPrice < product.ListPrice) {
     const discount =
       ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
     return `${baseTemplate}
-      <span class='list-price'><i><s>$${product.ListPrice}</i></s></span>
+      <span class='list-price'><i><s>$${product.ListPrice * product.quantity}</i></s></span>
       <span class='discount-small'><b>${discount.toFixed(0)}% off</b></span>
     </p>
   </li>`;

@@ -77,8 +77,18 @@ function addProductToCart(product) {
   const existingCart = getLocalStorage('so-cart');
   // make sure it is an array
   const cartArray = Array.isArray(existingCart) ? existingCart : [];
-  // add the new product to the cart
-  cartArray.push(product);
+
+  // Check for existing item
+  const existingItem = cartArray.find(item => item.Id === product.Id);
+
+  if (existingItem) {
+    // Increase quantity if it already exists
+    existingItem.quantity++;
+  } else {
+    // add the new product to the cart
+    product.quantity = 1;
+    cartArray.push(product); 
+  }
   // store it
   setLocalStorage('so-cart', cartArray);
   updateCartCount();

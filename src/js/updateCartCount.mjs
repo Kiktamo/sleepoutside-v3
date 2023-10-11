@@ -3,7 +3,13 @@ import { getLocalStorage } from './utils.mjs';
 export default function updateCartCount() {
   const cartElement = document.querySelector('.cart');
   const cartItems = getLocalStorage('so-cart');
-  const count = cartItems ? cartItems.length : 0;
+  let count = 0;
+
+  if (cartItems) {
+    cartItems.forEach(item => {
+      count += item.quantity; 
+    });
+  }
 
   // Find the existing cart count element or create a new one
   let cartCountElement =
