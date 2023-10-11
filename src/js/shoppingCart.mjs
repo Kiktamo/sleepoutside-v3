@@ -43,7 +43,7 @@ function updateCartFooter(cartItems) {
 
 function removeProductFromCart(productIdToRemove) {
   const cartItems = getLocalStorage('so-cart');
-  const existingItem = cartItems.find(item => item.Id === productIdToRemove);
+  const existingItem = cartItems.find((item) => item.Id === productIdToRemove);
 
   existingItem.quantity--;
   if (existingItem.quantity <= 0) {
@@ -102,7 +102,9 @@ function cartItemTemplate(product) {
     const discount =
       ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
     return `${baseTemplate}
-      <span class='list-price'><i><s>$${product.ListPrice * product.quantity}</i></s></span>
+      <span class='list-price'><i><s>$${
+        product.ListPrice * product.quantity
+      }</i></s></span>
       <span class='discount-small'><b>${discount.toFixed(0)}% off</b></span>
     </p>
   </li>`;

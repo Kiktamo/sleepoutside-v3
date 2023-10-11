@@ -6,8 +6,8 @@ export default function updateCartCount() {
   let count = 0;
 
   if (cartItems) {
-    cartItems.forEach(item => {
-      count += item.quantity; 
+    cartItems.forEach((item) => {
+      count += item.quantity;
     });
   }
 

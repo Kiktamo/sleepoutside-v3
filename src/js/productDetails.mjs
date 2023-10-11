@@ -79,7 +79,7 @@ function addProductToCart(product) {
   const cartArray = Array.isArray(existingCart) ? existingCart : [];
 
   // Check for existing item
-  const existingItem = cartArray.find(item => item.Id === product.Id);
+  const existingItem = cartArray.find((item) => item.Id === product.Id);
 
   if (existingItem) {
     // Increase quantity if it already exists
@@ -87,7 +87,7 @@ function addProductToCart(product) {
   } else {
     // add the new product to the cart
     product.quantity = 1;
-    cartArray.push(product); 
+    cartArray.push(product);
   }
   // store it
   setLocalStorage('so-cart', cartArray);
