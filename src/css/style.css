@@ -86,7 +86,7 @@ header {
 /* Search Bar css */
 #searchForm {
   display: flex;
-  position: fixed;
+  position: absolute;
   margin-top: 0.5rem;
   margin-left: 12rem;
 }
@@ -120,17 +120,19 @@ button {
   cursor: pointer;
 }
 
-@media (max-width: 470px) {
+@media (max-width: 700px) {
   header {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
   nav {
-    display: grid;
     grid-row: 2/3;
     grid-column: 1/3;
-    justify-content: center;
+  }
+  #searchForm {
+    margin-right: 5rem;
+    margin-left: 5rem;
   }
   #searchInput {
     width: 100%;
@@ -145,7 +147,7 @@ button {
 /* Cart icon styles */
 .cart {
   padding-top: 1em;
-  position: fixed;
+  position: absolute;
   top: 0em;
   right: 1em;
   text-align: right;
