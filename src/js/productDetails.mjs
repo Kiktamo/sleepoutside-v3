@@ -1,8 +1,4 @@
-import {
-  setLocalStorage,
-  getLocalStorage,
-  loadHeaderFooter,
-} from './utils.mjs';
+import { setLocalStorage, getLocalStorage } from './utils.mjs';
 import { findProductById } from './productData.mjs';
 import updateCartCount from './updateCartCount.mjs';
 
@@ -21,6 +17,17 @@ export default async function productDetails(productId) {
     document
       .getElementById('addToCart')
       .addEventListener('click', addToCartHandler);
+
+    document
+      .getElementById('increaseQuantity')
+      .addEventListener('click', (event) => {
+        modifyQuantity('increase');
+      });
+    document
+      .getElementById('decreaseQuantity')
+      .addEventListener('click', (event) => {
+        modifyQuantity('decrease');
+      });
   } catch (error) {
     // Product not found
     const errorMessageDiv = document.getElementById('error-message');
@@ -80,18 +87,38 @@ function addProductToCart(product) {
 
   // Check for existing item
   const existingItem = cartArray.find((item) => item.Id === product.Id);
+  // Get quantity to add
+  const quantity = parseInt(
+    document.getElementById('quantityNumber').innerHTML
+  );
 
   if (existingItem) {
     // Increase quantity if it already exists
-    existingItem.quantity++;
+    existingItem.quantity += quantity;
   } else {
     // add the new product to the cart
-    product.quantity = 1;
+    product.quantity = quantity;
     cartArray.push(product);
   }
   // store it
   setLocalStorage('so-cart', cartArray);
   updateCartCount();
+}
+
+function modifyQuantity(action) {
+  const quantity = document.getElementById('quantityNumber');
+  var counter = parseInt(quantity.innerHTML);
+
+  if (action === 'increase') {
+    counter++;
+  } else if (action === 'decrease') {
+    counter--;
+  }
+
+  if (counter <= 0) {
+    counter = 1;
+  }
+  quantity.innerHTML = counter;
 }
 
 // add to cart button event handler

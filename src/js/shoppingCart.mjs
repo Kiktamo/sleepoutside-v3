@@ -50,10 +50,16 @@ function removeProductFromCart(productIdToRemove) {
   updateCartCount();
 }
 
-function decreaseQuantityInCart(productId) {
+function modifyQuantityInCart(productId, action) {
   const cartItems = getLocalStorage('so-cart');
   const existingItem = cartItems.find((item) => item.Id === productId);
-  existingItem.quantity--;
+
+  if (action === 'increase') {
+    existingItem.quantity++;
+  } else if (action === 'decrease') {
+    existingItem.quantity--;
+  }
+
   if (existingItem.quantity <= 0) {
     removeProductFromCart(productId);
   } else {
@@ -62,12 +68,15 @@ function decreaseQuantityInCart(productId) {
   }
 }
 
-function increaseQuantityInCart(productId) {
-  const cartItems = getLocalStorage('so-cart');
-  const existingItem = cartItems.find((item) => item.Id === productId);
-  existingItem.quantity++;
-  setLocalStorage('so-cart', cartItems);
-  updateCartCount();
+function setupQuantityButtonListeners(buttons, increase = true) {
+  buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const productId = event.currentTarget.getAttribute('data-id');
+      const action = increase ? 'increase' : 'decrease';
+      modifyQuantityInCart(productId, action);
+      ShoppingCart();
+    });
+  });
 }
 
 export default function ShoppingCart() {
@@ -95,22 +104,10 @@ export default function ShoppingCart() {
   });
 
   const increaseButtons = document.querySelectorAll('.increase-quantity');
-  increaseButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const productId = event.currentTarget.getAttribute('data-id');
-      increaseQuantityInCart(productId);
-      ShoppingCart(); // Re-render the cart after removal
-    });
-  });
-
   const decreaseButtons = document.querySelectorAll('.decrease-quantity');
-  decreaseButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const productId = event.currentTarget.getAttribute('data-id');
-      decreaseQuantityInCart(productId);
-      ShoppingCart(); // Re-render the cart after removal
-    });
-  });
+
+  setupQuantityButtonListeners(increaseButtons, true); // For increase buttons
+  setupQuantityButtonListeners(decreaseButtons, false); // For decrease buttons
 }
 
 function cartItemTemplate(product) {
@@ -126,14 +123,8 @@ function cartItemTemplate(product) {
       <h2 class="card__name">${product.Name}</h2>
     </a>
     <p class="cart-card__color">${product.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: <span data-id="${
-      product.Id
-    }" class="decrease-quantity">-</span> ${product.quantity} <span data-id="${
-    product.Id
-  }" class="increase-quantity">+</span></p>
-    <p class="cart-card__price">$${(
-      product.FinalPrice * product.quantity
-    ).toFixed(2)}`;
+    <p class="cart-card__quantity">qty: <span data-id="${product.Id}" class="decrease-quantity">-</span> ${product.quantity} <span data-id="${product.Id}" class="increase-quantity">+</span></p>
+    <p class="cart-card__price">$${product.FinalPrice}`;
 
   if (product.FinalPrice < product.ListPrice) {
     const discount =
