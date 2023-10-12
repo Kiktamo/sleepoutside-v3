@@ -1,6 +1,6 @@
 // Load the alerts.json file
 export default function loadAlerts() {
-  fetch('/alerts.json')
+  fetch(`../json/alerts.json`)
     .then((response) => response.json())
     .then((data) => {
       createAlerts(data);
