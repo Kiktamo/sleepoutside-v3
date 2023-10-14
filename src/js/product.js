@@ -4,3 +4,5 @@ import productDetails from './productDetails.mjs';
 const productId = getParam('product');
 productDetails(productId);
 loadHeaderFooter();
+
+
