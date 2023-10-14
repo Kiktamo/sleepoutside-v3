@@ -151,10 +151,10 @@ button {
   grid-row: 1/2;
 }
 
-.cart img {
+.cart svg {
   width: 25px;
 }
-.cart:hover img {
+.cart:hover svg {
   fill: gray;
 }
 
@@ -171,7 +171,7 @@ button {
 /* End cart icon styles */
 
 /* Style the remove icon (X) as a cancel button */
-.remove-item {
+.remove-product {
   display: inline-block;
   color: #f44336; /* Red text color */
   font-weight: bold;
@@ -191,8 +191,28 @@ button {
 }
 
 /* Hover effect for the remove icon */
-.remove-item:hover {
+.remove-product:hover {
   color: #d32f2f; /* Darker red on hover */
+}
+
+.decrease-quantity {
+  color: #f44336;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.decrease-quantity:hover {
+  color: #d32f2f; /* Darker red on hover */
+}
+
+.increase-quantity {
+  color: var(--secondary-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.increase-quantity:hover {
+  color: #7b8817; /* Darker red on hover */
 }
 
 .mission {
@@ -250,6 +270,19 @@ button {
   margin-bottom: 0.3em;
 }
 
+.discount-small {
+  color: #f00;
+  margin-bottom: 0.2em;
+  font-size: var(--small-font);
+}
+
+.discount-small b {
+  color: #fff;
+  background-color: #f00;
+  border-radius: 0.1em;
+  padding: 0.1em;
+}
+
 .discount b {
   color: #fff;
   background-color: #f00;
@@ -269,7 +302,7 @@ button {
 /* Start cart list card styles */
 .cart-card {
   display: grid;
-  grid-template-columns: 25% auto 15%;
+  grid-template-columns: 25% auto 25%;
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
@@ -312,7 +345,7 @@ button {
   }
   .cart-card {
     font-size: inherit;
-    grid-template-columns: 150px auto 15%;
+    grid-template-columns: 150px auto 25%;
   }
 }
 
@@ -334,4 +367,17 @@ footer {
 
 #addToCart {
   display: none;
+}
+
+.alert-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert-list p {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #000;
+  width: 50%;
 }

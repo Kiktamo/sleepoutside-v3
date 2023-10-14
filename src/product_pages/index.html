@@ -14,21 +14,7 @@
   </head>
 
   <body>
-    <header class="divider">
-      <div class="logo">
-        <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-        <a href="../index.html"> Sleep<span class="highlight">Outside</span></a>
-      </div>
-
-      <div class="cart">
-        <a href="../cart/index.html">
-          <img
-            src="/images/backpack_cart.svg"
-            alt="backpack shopping cart icon"
-          />
-        </a>
-      </div>
-    </header>
+    <header class="divider" id="main-header"></header>
 
     <main class="divider">
       <div id="error-message"></div>
@@ -46,11 +32,16 @@
         <p class="product__description" id="productDescriptionHtmlSimple"></p>
 
         <div class="product-detail__add">
+          <span class="product__quantity" id="productQuantity">
+            qty: <span class="decrease-quantity" id="decreaseQuantity">-</span>
+            <span id="quantityNumber">1</span>
+            <span class="increase-quantity" id="increaseQuantity">+</span>
+          </span>
           <button id="addToCart" data-id="">Add to Cart</button>
         </div>
       </section>
     </main>
 
-    <footer>&copy;NOT a real business</footer>
+    <footer id="main-footer"></footer>
   </body>
 </html>
