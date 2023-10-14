@@ -25,7 +25,7 @@ export default async function productDetails(productId) {
     }
 }
 
-function renderProductDetails(product) {
+export function renderProductDetails(product) {
   // Get references to the HTML elements
   const productName = document.getElementById('productName');
   const productNameWithoutBrand = document.getElementById(

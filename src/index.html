@@ -15,19 +15,19 @@
       </div>
       <nav>
         <form id="searchForm" class="search-form">
-          <input type="text" id="searchInput" class="search-input"
-            placeholder="Search for products">
-          <button type="submit" class="search-button">Search</button>
+          <input type="search" id="searchInput" class="search-input"
+            placeholder="Search Products" onkeyup="search()">
+          <!-- <button type="submit" class="search-button">Search</button> -->
         </form>
-      </nav>
 
-      <div class="cart">
+        <div class="cart">
         <a href="cart/index.html">
           <img
             src="/images/backpack_cart.svg"
             alt="backpack shopping cart icon" />
         </a>
       </div>
+      </nav>
     </header>
     <main class="divider">
       <div class="hero">
@@ -51,7 +51,7 @@
       </section>
       <section class="products">
         <h2>Top Products</h2>
-        <ul class="product-list">
+        <ul class="product-list" id="product-list">
         </ul>
       </section>
     </main>

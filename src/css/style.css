@@ -92,23 +92,23 @@ header {
 }
 
 #searchInput:focus {
-  width: 70%;
+  width: 100%;
 }
 #searchInput {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 30%;
+  width: 50%;
 }
 
-.search-button {
+/* .search-button {
   padding: 0.5rem;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin: 5px;
-}
+} */
 
 button {
   padding: 0.5em 2em;
@@ -131,8 +131,7 @@ button {
     grid-column: 1/3;
   }
   #searchForm {
-    margin-right: 5rem;
-    margin-left: 5rem;
+    margin: 0;
   }
   #searchInput {
     width: 100%;
@@ -147,11 +146,9 @@ button {
 /* Cart icon styles */
 .cart {
   padding-top: 1em;
-  position: absolute;
-  top: 0em;
-  right: 1em;
   text-align: right;
   grid-column: 2/3;
+  grid-row: 1/2;
 }
 
 .cart img {
