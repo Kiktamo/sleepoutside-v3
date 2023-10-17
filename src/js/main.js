@@ -1,5 +1,7 @@
-import updateCartCount from './updateCartCount.mjs';
 import productList from './productList.mjs';
+import loadAlerts from './alerts.mjs';
+import { loadHeaderFooter } from './utils.mjs';
 
-updateCartCount();
+loadHeaderFooter();
+loadAlerts();
 productList('.product-list', 'tents');

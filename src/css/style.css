@@ -165,6 +165,26 @@ button {
   color: #d32f2f; /* Darker red on hover */
 }
 
+.decrease-quantity {
+  color: #f44336;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.decrease-quantity:hover {
+  color: #d32f2f; /* Darker red on hover */
+}
+
+.increase-quantity {
+  color: var(--secondary-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.increase-quantity:hover {
+  color: #7b8817; /* Darker red on hover */
+}
+
 .mission {
   padding: 0 0.5em;
   /* margin: 0.5em 0; */
@@ -252,7 +272,7 @@ button {
 /* Start cart list card styles */
 .cart-card {
   display: grid;
-  grid-template-columns: 25% auto 15%;
+  grid-template-columns: 25% auto 25%;
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
@@ -295,7 +315,7 @@ button {
   }
   .cart-card {
     font-size: inherit;
-    grid-template-columns: 150px auto 15%;
+    grid-template-columns: 150px auto 25%;
   }
 }
 
@@ -317,4 +337,17 @@ footer {
 
 #addToCart {
   display: none;
+}
+
+.alert-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert-list p {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #000;
+  width: 50%;
 }
