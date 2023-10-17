@@ -81,6 +81,24 @@ header {
   color: var(--tertiary-color);
 }
 
+#searchForm {
+  display: flex;
+  align-items: center;
+}
+
+#searchInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+#searchButton {
+  margin: 5px;
+}
+
 button {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
@@ -332,4 +350,46 @@ footer {
   padding: 10px;
   border: 1px solid #000;
   width: 50%;
+}
+
+.category-list {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-rows: auto;
+
+  list-style: none;
+
+  padding: 0;
+}
+
+.category-list li a {
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: auto;
+
+  grid-template-rows: auto, auto;
+
+  text-decoration: none;
+
+  color: black;
+}
+
+.category-list li a img {
+  width: 200px;
+
+  margin: auto;
+}
+
+.category-list li a h3 {
+  margin: auto;
+
+  margin-top: 2rem;
+}
+
+.category-list figcaption{
+  text-align: center;
 }
