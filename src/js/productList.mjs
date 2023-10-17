@@ -6,11 +6,11 @@ export default async function productList(selector, category) {
   const product_list = qs(selector);
   const products = await getData(category);
 
-  const topProductIds = await getData('top-products');
-  const topProducts = await filterProducts(products, topProductIds); // Filter the products
+  // const topProductIds = await getData('top-products');
+  // const topProducts = await filterProducts(products, topProductIds); // Filter the products
 
   // render out the top product list to the element
-  renderListWithTemplate(productCardTemplate, product_list, topProducts);
+  renderListWithTemplate(productCardTemplate, product_list, products);
 }
 
 function productCardTemplate(product) {
@@ -18,9 +18,9 @@ function productCardTemplate(product) {
     const discount =
       ((product.ListPrice - product.FinalPrice) / product.ListPrice) * 100;
     return `<li class="product-card">
-      <a href="product_pages/index.html?product=${product.Id}">
+      <a href="../product_pages/index.html?product=${product.Id}">
       <img
-        src="${product.Image}"
+        src="${product.Images.PrimaryMedium}"
         alt="Image of ${product.Name}"
       />
       <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -33,9 +33,9 @@ function productCardTemplate(product) {
     </li>`;
   } else {
     return `<li class="product-card">
-    <a href="product_pages/index.html?product=${product.Id}">
+    <a href="../product_pages/index.html?product=${product.Id}">
     <img
-      src="${product.Image}"
+      src="${product.Images.PrimaryMedium}"
       alt="Image of ${product.Name}"
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>

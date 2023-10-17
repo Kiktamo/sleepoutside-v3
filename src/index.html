@@ -8,26 +8,6 @@
     <script src="./js/main.js" type="module"></script>
   </head>
   <body>
-    <header class="divider">
-      <div class="logo">
-        <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-        <a href="index.html"> Sleep<span class="highlight">Outside</span></a>
-      </div>
-      <nav>
-        <form id="searchForm">
-          <input type="text" id="searchInput" placeholder="Search for products">
-          <button id="searchButton" type="submit">Search</button>
-        </form>
-      </nav>
-      <div class="cart">
-        <a href="cart/index.html">
-          <img
-            src="/images/backpack_cart.svg"
-            alt="backpack shopping cart icon"
-          />
-        </a>
-      </div>
-    </header>
     <header class="divider" id="main-header"></header>
     <main class="divider">
       <div class="hero">
@@ -50,8 +30,43 @@
         </p>
       </section>
       <section class="products">
-        <h2>Top Products</h2>
-        <ul class="product-list"></ul>
+        <ul class="category-list">
+          <li>
+            <a href="product-list/index.html?category=tents"><figure>
+                <img
+                  src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Tent_3544767.svg"
+                  alt="Tent Icon from Noun Project: Mustofa Bayu" />
+              </figure>
+              <figcaption>Tents</figcaption></a>
+          </li>
+
+          <li>
+            <a href="product-list/index.html?category=sleeping-bags"><figure>
+                <img
+                  src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Sleeping%20Bag_3544775.svg"
+                  alt="Sleeping Bag Icon from Noun Project: Mustofa Bayu" />
+              </figure>
+              <figcaption>Sleeping Bags</figcaption></a>
+          </li>
+
+          <li>
+            <a href="product-list/index.html?category=backpacks"><figure>
+                <img
+                  src="https://byui-cit.github.io/wdd330/images/category-icons/noun_carrier%20bag_3544771.svg"
+                  alt="Backpack Icon from Noun Project: Mustofa Bayu" />
+              </figure>
+              <figcaption>Backpacks</figcaption></a>
+          </li>
+
+          <li>
+            <a href="product-list/index.html?category=hammocks"><figure>
+                <img
+                  src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Hammock_791143.svg"
+                  alt="Hammock Icon from Noun Project: Paul Richard" />
+              </figure>
+              <figcaption>Hammocks</figcaption></a>
+          </li>
+        </ul>
       </section>
     </main>
     <footer id="main-footer"></footer>

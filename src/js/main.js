@@ -4,4 +4,4 @@ import { loadHeaderFooter } from './utils.mjs';
 
 loadHeaderFooter();
 loadAlerts();
-productList('.product-list', 'tents');
+
