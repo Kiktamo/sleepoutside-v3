@@ -2,14 +2,19 @@ import { qs } from './utils.mjs';
 import { getData } from './productData.mjs';
 import { renderListWithTemplate } from './utils.mjs';
 
-export default async function productList(selector, category) {
+export default async function productList(
+  selector,
+  category,
+  sortKey,
+  sortOrder = 'asc'
+) {
   const product_list = qs(selector);
   const products = await getData(category);
 
-  // const topProductIds = await getData('top-products');
-  // const topProducts = await filterProducts(products, topProductIds); // Filter the products
+  // Sort the products based on the provided key and order
+  sortProducts(products, sortKey, sortOrder);
 
-  // render out the top product list to the element
+  // Render the sorted product list
   renderListWithTemplate(productCardTemplate, product_list, products);
 }
 
@@ -45,6 +50,19 @@ function productCardTemplate(product) {
   }
 }
 
-async function filterProducts(products, topProductIds) {
-  return products.filter((product) => topProductIds.includes(product.Id));
+// async function filterProducts(products, topProductIds) {
+//   return products.filter((product) => topProductIds.includes(product.Id));
+// }
+
+// Modify your sortProducts function
+function sortProducts(products, key, order) {
+  products.sort((a, b) => {
+    const aValue = a[key];
+    const bValue = b[key];
+    if (order === 'asc') {
+      return aValue > bValue ? 1 : -1;
+    } else {
+      return aValue < bValue ? 1 : -1;
+    }
+  });
 }
