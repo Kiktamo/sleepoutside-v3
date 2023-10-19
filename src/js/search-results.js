@@ -5,6 +5,6 @@ const searchQuery = getParam('search');
 loadHeaderFooter();
 productSearch('.product-list', searchQuery);
 
-const productQuery = document.getElementById('productQuery');
+const productQuery = document.getElementById('searchQuery');
 
 productQuery.innerHTML = ': ' + searchQuery;
