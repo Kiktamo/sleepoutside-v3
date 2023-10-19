@@ -94,10 +94,7 @@ export async function loadHeaderFooter() {
 
       // Wait for the promise to resolve
       searchButtonLoaded.then(() => {
-        searchButton.addEventListener(
-          'click',
-          productSearch('.product-list', searchQuery)
-        );
+        searchButton.addEventListener('click', handleProductSearch);
         // You may need to define 'searchQuery' or retrieve it from an appropriate source.
       });
     }
