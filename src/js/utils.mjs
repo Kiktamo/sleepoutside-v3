@@ -1,4 +1,5 @@
 import updateCartCount from './updateCartCount.mjs';
+import { handleProductSearch } from './search-bar.js';
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -80,6 +81,29 @@ export async function loadHeaderFooter() {
   const headerEl = document.querySelector('#main-header');
   const footerEl = document.querySelector('#main-footer');
 
-  renderWithTemplate(headerTemplateFn, headerEl, updateCartCount);
+  renderWithTemplate(headerTemplateFn, headerEl, () => {
+    // After rendering the header template, add the event listener for the search button
+
+    const searchButton = document.getElementById('search-button');
+
+    if (searchButton) {
+      // Create a promise to wait for the load event
+      const searchButtonLoaded = new Promise((resolve) => {
+        searchButton.addEventListener('load', resolve);
+      });
+
+      // Wait for the promise to resolve
+      searchButtonLoaded.then(() => {
+        searchButton.addEventListener(
+          'click',
+          productSearch('.product-list', searchQuery)
+        );
+        // You may need to define 'searchQuery' or retrieve it from an appropriate source.
+      });
+    }
+
+    // Call any other necessary functions here.
+  });
+
   renderWithTemplate(footerTemplateFn, footerEl);
 }
