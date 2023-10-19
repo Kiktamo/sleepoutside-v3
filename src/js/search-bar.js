@@ -10,11 +10,3 @@ export function handleProductSearch() {
     )}`;
   };
 }
-
-// Add an event listener to the search button
-document.addEventListener('DOMContentLoaded', () => {
-  const searchButton = document.getElementById('search-button');
-  if (searchButton) {
-    searchButton.addEventListener('click', handleProductSearch);
-  }
-});
