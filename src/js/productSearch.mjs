@@ -61,8 +61,9 @@ async function buildProductList(query) {
 
   // Use the filter method to filter products based on the query
   const filteredProducts = allProducts.filter((product) => {
+    console.log(product);
     // Convert the product name and query to lowercase for a case-insensitive search
-    const productName = product.name.toLowerCase();
+    const productName = product.Name.toLowerCase();
     const lowercaseQuery = query.toLowerCase();
 
     // Check if the product name contains the query
