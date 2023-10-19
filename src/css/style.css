@@ -393,3 +393,42 @@ footer {
 .category-list figcaption {
   text-align: center;
 }
+
+/* Styles for the sort controller */
+.sort-controller {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sort-controller label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.sort-controller select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.sort-controller button {
+  padding: 5px 10px;
+  background-color: var(
+    --secondary-color
+  ); /* Match your design's secondary color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styling for hover and active states of the button */
+.sort-controller button:hover {
+  background-color: #0056b3; /* Adjust the hover color */
+}
+
+.sort-controller button:active {
+  background-color: #003d80; /* Adjust the active color */
+}

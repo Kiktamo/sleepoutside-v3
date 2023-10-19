@@ -13,6 +13,19 @@
     <main class="divider">
       <section class="products">
         <h2>Top Products <span id="productType"></span></h2>
+
+        <div class="sort-controller">
+          <label for="sort-select">Sort By:</label>
+          <select id="sort-select">
+            <option value="">No Sorting</option>
+            <option value="name_asc">Name</option>
+            <option value="brand_asc">Brand</option>
+            <option value="price_asc">Price (Ascending)</option>
+            <option value="price_desc">Price (Descending)</option>
+          </select>
+          <button id="apply-sort">Apply</button>
+        </div>
+
         <ul class="product-list"></ul>
       </section>
     </main>
