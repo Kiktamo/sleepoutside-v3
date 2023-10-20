@@ -17,6 +17,7 @@
   box-sizing: border-box;
 }
 body {
+  position: relative;
   margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-base);
@@ -156,7 +157,7 @@ button {
   margin-right: 8px; /* Add some spacing between items */
 }
 
-.cart-footer-hidden {
+.hidden {
   visibility: hidden;
 }
 
@@ -431,4 +432,60 @@ footer {
 
 .sort-controller button:active {
   background-color: #003d80; /* Adjust the active color */
+}
+
+.quick-look {
+  max-width: 20px;
+  float: right;
+}
+
+.quick-look:hover {
+  filter: invert(50%);
+  cursor: pointer;
+}
+
+.product-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 450px;
+  padding: 1.5rem;
+  min-height: 100px;
+  position: absolute;
+  left: 30%;
+  top: 10%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.product-modal .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.close-modal {
+  color: #f44336;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.close-modal:hover {
+  color: #d32f2f; /* Darker red on hover */
 }
