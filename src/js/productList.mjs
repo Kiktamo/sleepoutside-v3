@@ -28,7 +28,7 @@ export default async function productList(
 
 function productCardTemplate(product) {
   const baseTemplate = `<li class="product-card">
-  <img data-id="${product.Id}" class="quick-look" src="/images/magnify.svg alt="magnifying glass">
+  <img data-id="${product.Id}" class="quick-look" src="/images/magnify.svg" alt="magnifying glass">
   <a href="../product_pages/index.html?product=${product.Id}">
   <img
     src="${product.Images.PrimaryMedium}"
