@@ -53,6 +53,8 @@ export async function renderWithTemplate(
   position = 'afterbegin',
   clear = true
 ) {
+  console.log('renderWithTemplate called');
+
   if (clear) {
     parentElement.innerHTML = '';
   }
@@ -60,6 +62,8 @@ export async function renderWithTemplate(
   parentElement.insertAdjacentHTML(position, htmlString);
 
   if (callback) {
+    console.log('Callback called within renderWithTemplate');
+
     callback(data);
   }
 }
@@ -75,28 +79,23 @@ function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
+  console.log('loadHeaderFooter called');
   const headerTemplateFn = loadTemplate('/partials/header.html');
   const footerTemplateFn = loadTemplate('/partials/footer.html');
 
   const headerEl = document.querySelector('#main-header');
   const footerEl = document.querySelector('#main-footer');
 
-  renderWithTemplate(headerTemplateFn, headerEl, updateCartCount, () => {
+  renderWithTemplate(headerTemplateFn, headerEl, () => {
     // After rendering the header template, add the event listener for the search button
+    console.log('Callback for header template is executing');
 
     const searchButton = document.getElementById('search-button');
 
     if (searchButton) {
-      // Create a promise to wait for the load event
-      const searchButtonLoaded = new Promise((resolve) => {
-        searchButton.addEventListener('load', resolve);
-      });
-
-      // Wait for the promise to resolve
-      searchButtonLoaded.then(() => {
-        searchButton.addEventListener('click', handleProductSearch);
-        // You may need to define 'searchQuery' or retrieve it from an appropriate source.
-      });
+      searchButton.addEventListener('click', handleProductSearch());
+      // You may need to define 'searchQuery' or retrieve it from an appropriate source.
+      console.log('search button listener added');
     }
 
     // Call any other necessary functions here.
