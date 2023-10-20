@@ -86,7 +86,7 @@ export async function loadHeaderFooter() {
   const headerEl = document.querySelector('#main-header');
   const footerEl = document.querySelector('#main-footer');
 
-  renderWithTemplate(headerTemplateFn, headerEl, () => {
+  renderWithTemplate(headerTemplateFn, headerEl, updateCartCount, () => {
     // After rendering the header template, add the event listener for the search button
     console.log('Callback for header template is executing');
 
