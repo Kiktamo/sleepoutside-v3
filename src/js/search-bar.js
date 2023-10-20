@@ -1,11 +1,13 @@
 // Function to handle product search and open the search results page
 export function handleProductSearch() {
+  console.log('handleProductSearch called');
   return function () {
     const searchInput = document.getElementById('search-input');
     const query = searchInput.value.trim().toLowerCase();
+    console.log('search-results called');
 
     // Open the search results page with the search query as a query parameter
-    window.location.href = `/src/search-results/index.html?query=${encodeURIComponent(
+    window.location.href = `/search-results/index.html?query=${encodeURIComponent(
       query
     )}`;
   };

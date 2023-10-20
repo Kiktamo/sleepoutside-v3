@@ -1,7 +1,7 @@
 import productSearch from './productSearch.mjs';
 import { getParam, loadHeaderFooter } from './utils.mjs';
 
-const searchQuery = getParam('search');
+const searchQuery = getParam('query');
 loadHeaderFooter();
 productSearch('.product-list', searchQuery);
 
