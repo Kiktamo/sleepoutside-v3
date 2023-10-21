@@ -53,8 +53,6 @@ export async function renderWithTemplate(
   position = 'afterbegin',
   clear = true
 ) {
-  console.log('renderWithTemplate called');
-
   if (clear) {
     parentElement.innerHTML = '';
   }
@@ -62,8 +60,6 @@ export async function renderWithTemplate(
   parentElement.insertAdjacentHTML(position, htmlString);
 
   if (callback) {
-    console.log('Callback called within renderWithTemplate');
-
     callback(data);
   }
 }
@@ -79,7 +75,6 @@ function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
-  console.log('loadHeaderFooter called');
   const headerTemplateFn = loadTemplate('/partials/header.html');
   const footerTemplateFn = loadTemplate('/partials/footer.html');
 
@@ -87,26 +82,13 @@ export async function loadHeaderFooter() {
   const footerEl = document.querySelector('#main-footer');
 
   await renderWithTemplate(headerTemplateFn, headerEl, updateCartCount);
-  // After rendering the header template, add the event listener for the search button
 
-  // const searchButton = document.getElementById('search-button');
-
-  // if (searchButton) {
-  //   searchButton.addEventListener('click', handleProductSearch());
-  //   // You may need to define 'searchQuery' or retrieve it from an appropriate source.
-  //   console.log('search button listener added');
-
-  //   // Call any other necessary functions here.
-  // }
   const searchForm = document.getElementById('search-form');
 
   searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    // Call handleProductSearch to get the returned function
     const searchFunction = handleProductSearch();
-
-    // Execute the returned function
     searchFunction();
   });
 
