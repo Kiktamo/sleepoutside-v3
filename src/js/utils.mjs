@@ -89,15 +89,26 @@ export async function loadHeaderFooter() {
   await renderWithTemplate(headerTemplateFn, headerEl, updateCartCount);
   // After rendering the header template, add the event listener for the search button
 
-  const searchButton = document.getElementById('search-button');
+  // const searchButton = document.getElementById('search-button');
 
-  if (searchButton) {
-    searchButton.addEventListener('click', handleProductSearch());
-    // You may need to define 'searchQuery' or retrieve it from an appropriate source.
-    console.log('search button listener added');
+  // if (searchButton) {
+  //   searchButton.addEventListener('click', handleProductSearch());
+  //   // You may need to define 'searchQuery' or retrieve it from an appropriate source.
+  //   console.log('search button listener added');
 
-    // Call any other necessary functions here.
-  }
+  //   // Call any other necessary functions here.
+  // }
+  const searchForm = document.getElementById('search-form');
+
+  searchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Call handleProductSearch to get the returned function
+    const searchFunction = handleProductSearch();
+
+    // Execute the returned function
+    searchFunction();
+  });
 
   renderWithTemplate(footerTemplateFn, footerEl);
 }
