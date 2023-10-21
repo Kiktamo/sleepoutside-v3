@@ -113,6 +113,13 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
+.divider-top {
+  padding-top: 1rem;
+  border-top: 2px solid var(--primary-color);
+}
+.img-small {
+  width: 50%;
+}
 /* End utility classes */
 
 /* Cart icon styles */
@@ -236,6 +243,10 @@ button {
   margin: auto;
 }
 
+.product-detail img {
+  width: 100%;
+}
+
 .discount {
   color: #f00;
   margin-bottom: 0.3em;
@@ -264,10 +275,6 @@ button {
 .list-price {
   margin-top: 0.2em;
   font-size: var(--small-font);
-}
-
-.product-detail img {
-  width: 100%;
 }
 
 /* Start cart list card styles */
@@ -385,6 +392,10 @@ footer {
   margin: auto;
 }
 
+.category-list li a img:hover {
+  filter: invert(50%);
+}
+
 .category-list li a h3 {
   margin: auto;
 
@@ -434,6 +445,7 @@ footer {
   background-color: #003d80; /* Adjust the active color */
 }
 
+/* Quicklook and Modal styles */
 .quick-look {
   max-width: 20px;
   float: right;
@@ -450,11 +462,14 @@ footer {
   justify-content: center;
   gap: 0.4rem;
   width: 450px;
-  padding: 1.5rem;
-  min-height: 100px;
-  position: absolute;
-  left: 30%;
-  top: 10%;
+  padding: 1rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  max-width: calc(100% - 80px);
+  max-height: calc(100% - 80px);
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 15px;
@@ -488,4 +503,25 @@ footer {
 
 .close-modal:hover {
   color: #d32f2f; /* Darker red on hover */
+}
+
+.product-quicklook {
+  max-width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.product-quicklook img {
+  margin: auto;
+  text-align: center;
+}
+
+.product-quicklook p {
+  font-size: medium;
+}
+
+.product-quicklook * {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

@@ -77,7 +77,7 @@ async function toggleQuicklook(productId, display) {
   if (display) {
     const product = await findProductById(productId);
     await renderWithTemplate(
-      productDetailTemplate,
+      productQuicklookTemplate,
       elQuicklookModal,
       '',
       product
@@ -99,32 +99,20 @@ async function toggleQuicklook(productId, display) {
   }
 }
 
-function productDetailTemplate(product) {
+function productQuicklookTemplate(product) {
   const baseTemplate = `
   <span class="close-modal">X</span>
-  <section class="product-detail">
-  <h3 id="productName">${product.Name}</h3>
+  <section class="product-quicklook">
+  <h4 class="divider" id="productName">${product.Brand.Name} - ${product.NameWithoutBrand}</h2>
 
-  <h2 class="divider" id="productNameWithoutBrand">${product.NameWithoutBrand}</h2>
+  <img id="productImage" class="img-small" src="${product.Images.PrimaryMedium}" alt="${product.Name}" />
 
-  <img id="productImage" class="divider" src="${product.Images.PrimaryMedium}" alt="${product.Name}" />
-
-  <p class="product-card__price" id="productFinalPrice">`;
+  <p class="product-card__price divider-top" id="productFinalPrice">`;
 
   const endTemplate = `
   <p class="product__color" id="productColorName">Color: ${product.Colors[0].ColorName}</p>
 
-  <p class="product__description" id="productDescriptionHtmlSimple">${product.DescriptionHtmlSimple}</p>
-
-  <div class="product-detail__add">
-    <span class="product__quantity" id="productQuantity">
-      qty: <span class="decrease-quantity" id="decreaseQuantity">-</span>
-      <span id="quantityNumber">1</span>
-      <span class="increase-quantity" id="increaseQuantity">+</span>
-    </span>
-    <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
-  </div>
-</section>`;
+  <p class="product__description" id="productDescriptionHtmlSimple">${product.DescriptionHtmlSimple}</p>`;
 
   if (product.FinalPrice < product.ListPrice) {
     const discount =
