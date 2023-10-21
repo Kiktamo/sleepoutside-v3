@@ -461,8 +461,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   gap: 0.4rem;
-  width: 450px;
-  padding: 1rem;
+  width: 400px;
+  padding: 0.3rem;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -499,6 +499,7 @@ footer {
   color: #f44336;
   cursor: pointer;
   margin-left: auto;
+  padding: 3px;
 }
 
 .close-modal:hover {
@@ -506,7 +507,7 @@ footer {
 }
 
 .product-quicklook {
-  max-width: 80%;
+  max-width: 95%;
   margin: auto;
   display: grid;
   grid-template-rows: auto;
