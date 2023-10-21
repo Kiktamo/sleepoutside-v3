@@ -8,6 +8,11 @@
   --light-grey: #d0d0d0;
   --dark-grey: #303030;
 
+  /* based on --secondary-color */
+  --button-color: var(--secondary-color);
+  --button-hover: #819102;
+  --button-active: #383f01;
+
   /* sizes */
   --font-base: 18px;
   --small-font: 0.8em;
@@ -81,33 +86,26 @@ header {
   color: var(--tertiary-color);
 }
 
-#searchForm {
-  display: flex;
-  align-items: center;
-}
-
-#searchInput {
-  flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-#searchButton {
-  margin: 5px;
-}
-
 button {
   padding: 0.5em 2em;
-  background-color: var(--secondary-color);
+  background-color: var(--button-color);
   color: white;
   margin: auto;
   display: block;
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  transition: background-color 0.3s; /* Add a smooth transition effect */
+
+  /* Hover state */
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+  /* Active state */
+  &:active {
+    background-color: var(--button-active);
+  }
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
@@ -413,54 +411,39 @@ footer {
   font-size: 18px;
 }
 
-.sort-controller button {
-  padding: 5px 10px;
-  background-color: var(
-    --secondary-color
-  ); /* Match your design's secondary color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Styling for hover and active states of the button */
-.sort-controller button:hover {
-  background-color: #0056b3; /* Adjust the hover color */
-}
-
-.sort-controller button:active {
-  background-color: #003d80; /* Adjust the active color */
-}
-
 /* Add styles for the search bar */
 .search-bar {
+  display: flex;
+  align-items: center;
   text-align: center;
   margin: 20px 0;
 }
 
 #search-input {
-  padding: 10px;
-  border: 1px solid #ccc;
+  flex: 1; /* Make the input take up the available space */
+  padding: 4px;
+  border: 2px solid #ccc;
   border-radius: 4px;
-  font-size: 18px;
-  margin-right: 10px;
+  font-size: 16px; /* Adjust the font size for smaller screens */
+  max-width: 300px;
 }
 
 #search-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  padding: 4px 4px; /* Reduce the padding for smaller screens */
+  background-color: var(--button-color);
   border: none;
   border-radius: 4px;
-  font-size: 18px;
+  font-size: 16px; /* Adjust the font size for smaller screens */
   cursor: pointer;
-}
+  transition: background-color 0.3s; /* Add a smooth transition effect */
 
-#search-button:hover {
-  background-color: #0056b3;
-}
+  /* Hover state */
+  &:hover {
+    background-color: var(--button-hover);
+  }
 
-#search-button:active {
-  background-color: #003d80;
+  /* Active state */
+  &:active {
+    background-color: var(--button-active);
+  }
 }
