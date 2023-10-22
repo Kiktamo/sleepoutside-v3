@@ -13,6 +13,11 @@
   --button-hover: #819102;
   --button-active: #383f01;
 
+  /* based on --secondary-color */
+  --button-color: var(--secondary-color);
+  --button-hover: #819102;
+  --button-active: #383f01;
+
   /* sizes */
   --font-base: 18px;
   --small-font: 0.8em;
@@ -90,12 +95,24 @@ header {
 button {
   padding: 0.5em 2em;
   background-color: var(--button-color);
+  background-color: var(--button-color);
   color: white;
   margin: auto;
   display: block;
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  transition: background-color 0.3s; /* Add a smooth transition effect */
+
+  /* Hover state */
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+  /* Active state */
+  &:active {
+    background-color: var(--button-active);
+  }
   transition: background-color 0.3s; /* Add a smooth transition effect */
 
   /* Hover state */
@@ -423,6 +440,26 @@ footer {
   font-size: 18px;
 }
 
+/* Add styles for the search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+#search-input {
+  flex: 1; /* Make the input take up the available space */
+  padding: 4px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px; /* Adjust the font size for smaller screens */
+  max-width: 300px;
+}
+
+#search-button {
+  padding: 4px 4px; /* Reduce the padding for smaller screens */
+  background-color: var(--button-color);
 /* Quicklook and Modal styles */
 .quick-look {
   max-width: 20px;
@@ -498,7 +535,19 @@ footer {
   border: none;
   border-radius: 4px;
   font-size: 16px; /* Adjust the font size for smaller screens */
+  font-size: 16px; /* Adjust the font size for smaller screens */
   cursor: pointer;
+  transition: background-color 0.3s; /* Add a smooth transition effect */
+
+  /* Hover state */
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+  /* Active state */
+  &:active {
+    background-color: var(--button-active);
+  }
   margin-left: auto;
   padding: 3px;
 }
