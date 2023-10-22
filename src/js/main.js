@@ -1,9 +1,9 @@
-import productList from './productList.mjs';
 import loadAlerts from './alerts.mjs';
 import { loadHeaderFooter } from './utils.mjs';
 
 loadHeaderFooter();
 loadAlerts();
+<<<<<<< HEAD
 productList('.product-list', 'tents');
 const search = () => {
   // Get the search query from the input field and convert it to lowercase
@@ -40,3 +40,5 @@ const search = () => {
 
 // Call the search function when the input field content changes
 document.querySelector('#searchInput').addEventListener('input', search);
+=======
+>>>>>>> 1f38f73e73b3ca0dd5e5d0841d7f254767dbcb0c

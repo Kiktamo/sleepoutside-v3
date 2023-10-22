@@ -17,6 +17,7 @@
   box-sizing: border-box;
 }
 body {
+  position: relative;
   margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-base);
@@ -83,6 +84,7 @@ header {
   color: var(--tertiary-color);
 }
 
+<<<<<<< HEAD
 /* Search Bar css */
 #searchForm {
   display: flex;
@@ -109,6 +111,25 @@ header {
   cursor: pointer;
   margin: 5px;
 } */
+=======
+#searchForm {
+  display: flex;
+  align-items: center;
+}
+
+#searchInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+#searchButton {
+  margin: 5px;
+}
+>>>>>>> 1f38f73e73b3ca0dd5e5d0841d7f254767dbcb0c
 
 button {
   padding: 0.5em 2em;
@@ -140,6 +161,13 @@ button {
 
 .divider {
   border-bottom: 2px solid var(--primary-color);
+}
+.divider-top {
+  padding-top: 1rem;
+  border-top: 2px solid var(--primary-color);
+}
+.img-small {
+  width: 50%;
 }
 /* End utility classes */
 
@@ -186,7 +214,7 @@ button {
   margin-right: 8px; /* Add some spacing between items */
 }
 
-.cart-footer-hidden {
+.hidden {
   visibility: hidden;
 }
 
@@ -265,6 +293,10 @@ button {
   margin: auto;
 }
 
+.product-detail img {
+  width: 100%;
+}
+
 .discount {
   color: #f00;
   margin-bottom: 0.3em;
@@ -293,10 +325,6 @@ button {
 .list-price {
   margin-top: 0.2em;
   font-size: var(--small-font);
-}
-
-.product-detail img {
-  width: 100%;
 }
 
 /* Start cart list card styles */
@@ -380,4 +408,171 @@ footer {
   padding: 10px;
   border: 1px solid #000;
   width: 50%;
+}
+
+.category-list {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-rows: auto;
+
+  list-style: none;
+
+  padding: 0;
+}
+
+.category-list li a {
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: auto;
+
+  grid-template-rows: auto, auto;
+
+  text-decoration: none;
+
+  color: black;
+}
+
+.category-list li a img {
+  width: 200px;
+
+  margin: auto;
+}
+
+.category-list li a img:hover {
+  filter: invert(50%);
+}
+
+.category-list li a h3 {
+  margin: auto;
+
+  margin-top: 2rem;
+}
+
+.category-list figcaption {
+  text-align: center;
+}
+
+/* Styles for the sort controller */
+.sort-controller {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sort-controller label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.sort-controller select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.sort-controller button {
+  padding: 5px 10px;
+  background-color: var(
+    --secondary-color
+  ); /* Match your design's secondary color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styling for hover and active states of the button */
+.sort-controller button:hover {
+  background-color: #0056b3; /* Adjust the hover color */
+}
+
+.sort-controller button:active {
+  background-color: #003d80; /* Adjust the active color */
+}
+
+/* Quicklook and Modal styles */
+.quick-look {
+  max-width: 20px;
+  float: right;
+}
+
+.quick-look:hover {
+  filter: invert(50%);
+  cursor: pointer;
+}
+
+.product-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 400px;
+  padding: 0.3rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  max-width: calc(100% - 80px);
+  max-height: calc(100% - 80px);
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.product-modal .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.close-modal {
+  color: #f44336;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 3px;
+}
+
+.close-modal:hover {
+  color: #d32f2f; /* Darker red on hover */
+}
+
+.product-quicklook {
+  max-width: 95%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.product-quicklook img {
+  margin: auto;
+  text-align: center;
+}
+
+.product-quicklook p {
+  font-size: medium;
+}
+
+.product-quicklook * {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

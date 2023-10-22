@@ -53,7 +53,7 @@ export function renderProductDetails(product) {
   // Populate the HTML elements with product data
   productName.textContent = product.Name;
   productNameWithoutBrand.textContent = product.NameWithoutBrand;
-  productImage.src = product.Image;
+  productImage.src = product.Images.PrimaryLarge;
   productImage.alt = product.Name;
 
   // Determine discount if there's a difference between the final price and list price.

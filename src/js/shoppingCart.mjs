@@ -28,16 +28,14 @@ function renderCartSubtotal(cartItems) {
 }
 
 function updateCartFooter(cartItems) {
-  const hidden = document.querySelector('.cart-footer-hidden');
+  const cartFooter = document.querySelector('.cart-footer');
   const count = cartItems.length;
 
-  if (count > 0 && hidden) {
-    hidden.setAttribute('class', 'cart-footer');
+  if (count > 0) {
+    cartFooter.setAttribute('class', 'cart-footer');
   }
-  if (count <= 0 && !hidden) {
-    document
-      .querySelector('.cart-footer')
-      .setAttribute('class', 'cart-footer-hidden');
+  if (count <= 0) {
+    cartFooter.setAttribute('class', 'cart-footer hidden');
   }
 }
 
@@ -115,7 +113,7 @@ function cartItemTemplate(product) {
     <span class="remove-product" data-id="${product.Id}">remove</span>
     <a href="#" class="cart-card__image">
       <img
-        src="${product.Image}"
+        src="${product.Images.PrimaryMedium}"
         alt="${product.Name}"
       />
     </a>
