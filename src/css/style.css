@@ -596,3 +596,13 @@ footer {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+#register-banner {
+  background: #dbe8b6;
+  padding: 10px;
+  text-align: center;
+}
+
+#register-banner.hidden {
+  display: none;
+}
