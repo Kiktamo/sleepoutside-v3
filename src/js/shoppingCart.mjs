@@ -62,7 +62,7 @@ function modifyQuantityInCart(productId, action) {
     removeProductFromCart(productId);
   } else {
     setLocalStorage('so-cart', cartItems);
-    updateCartCount();
+    updateCartCount(true);
   }
 }
 
