@@ -1,4 +1,5 @@
 import updateCartCount from './updateCartCount.mjs';
+import { handleProductSearch } from './search-bar.js';
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -80,6 +81,16 @@ export async function loadHeaderFooter() {
   const headerEl = document.querySelector('#main-header');
   const footerEl = document.querySelector('#main-footer');
 
-  renderWithTemplate(headerTemplateFn, headerEl, updateCartCount);
+  await renderWithTemplate(headerTemplateFn, headerEl, updateCartCount);
+
+  const searchForm = document.getElementById('search-form');
+
+  searchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const searchFunction = handleProductSearch();
+    searchFunction();
+  });
+
   renderWithTemplate(footerTemplateFn, footerEl);
 }

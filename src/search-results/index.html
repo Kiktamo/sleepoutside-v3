@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Product List</title>
+    <title>Sleep Outside | Search Results</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/product-list.js" type="module"></script>
+    <script src="/js/search-results.js" type="module"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -15,12 +15,10 @@
   <body>
     <header class="divider" id="main-header"></header>
     <main class="divider">
-      <section class="product-modal hidden"></section>
-      <div class="overlay hidden"></div>
       <section class="products">
-        <h2>Top Products <span id="productType"></span></h2>
+        <h2>Search <span id="searchQuery"></span></h2>
 
-        <div class="sort-controller">
+        <!-- <div class="sort-controller">
           <label for="sort-select">Sort By:</label>
           <select id="sort-select">
             <option value="">No Sorting</option>
@@ -30,7 +28,7 @@
             <option value="price_desc">Price (Descending)</option>
           </select>
           <button id="apply-sort">Apply</button>
-        </div>
+        </div> -->
 
         <ul class="product-list"></ul>
       </section>
