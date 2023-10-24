@@ -102,7 +102,7 @@ function addProductToCart(product) {
   }
   // store it
   setLocalStorage('so-cart', cartArray);
-  updateCartCount();
+  updateCartCount(true);
 }
 
 function modifyQuantity(action) {
