@@ -1,10 +1,10 @@
 import { qs } from './utils.mjs';
-import { getData } from './productData.mjs';
+import { getProductsByCategory } from './externalServices.mjs';
 import { renderListWithTemplate } from './utils.mjs';
 
 export default async function productSearch(selector, query) {
   const product_list = qs(selector);
-  //   const products = await getData(category);
+  //   const products = await getProductsByCategory(category);
   const products = await buildProductList(query);
 
   // Sort the products based on the provided key and order
@@ -55,7 +55,7 @@ async function buildProductList(query) {
 
   // Loop through each category and fetch products
   for (const category of categories) {
-    const products = await getData(category);
+    const products = await getProductsByCategory(category);
     allProducts.push(...products);
   }
 
