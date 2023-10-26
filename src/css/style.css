@@ -473,28 +473,6 @@ footer {
 #search-button {
   padding: 4px 4px; /* Reduce the padding for smaller screens */
   background-color: var(--button-color);
-}
-
-/* Add styles for the search bar */
-.search-bar {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 20px 0;
-}
-
-#search-input {
-  flex: 1; /* Make the input take up the available space */
-  padding: 4px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px; /* Adjust the font size for smaller screens */
-  max-width: 300px;
-}
-
-#search-button {
-  padding: 4px 4px; /* Reduce the padding for smaller screens */
-  background-color: var(--button-color);
   border: none;
   border-radius: 4px;
   font-size: 16px; /* Adjust the font size for smaller screens */
@@ -711,10 +689,17 @@ footer {
   font-weight: bold;
 }
 
-.checkout-form {
+/* .checkout-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+} */
+
+.checkout-form {
+  padding: 0.5em;
+}
+.checkout-form label {
+  display: block;
 }
 
 /* .checkout-form label {
