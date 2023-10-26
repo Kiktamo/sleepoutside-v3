@@ -1,5 +1,5 @@
-import { getLocalStorage } from "./utils.mjs";
-import { checkout } from "./externalServices.mjs";
+import { getLocalStorage } from './utils.mjs';
+import { checkout } from './externalServices.mjs';
 
 function formDataToJSON(formElement) {
   const formData = new FormData(formElement),
@@ -19,15 +19,15 @@ function packageItems(items) {
       id: item.Id,
       price: item.FinalPrice,
       name: item.Name,
-      quantity: 1,
+      quantity: item.quantity,
     };
   });
   return simplifiedItems;
 }
 
 const checkoutProcess = {
-  key: "",
-  outputSelector: "",
+  key: '',
+  outputSelector: '',
   list: [],
   itemTotal: 0,
   shipping: 0,
@@ -41,19 +41,35 @@ const checkoutProcess = {
   },
   calculateItemSummary: function () {
     const summaryElement = document.querySelector(
-      this.outputSelector + " #cartTotal"
+      this.outputSelector + ' #cartTotal'
     );
     const itemNumElement = document.querySelector(
-      this.outputSelector + " #num-items"
+      this.outputSelector + ' #num-items'
     );
-    itemNumElement.innerText = this.list.length;
+
+    // Quantity
+    let count = 0;
+
+    this.list.forEach((item) => {
+      count += item.quantity;
+    });
+
+    itemNumElement.innerText = count;
+
     // calculate the total of all the items in the cart
-    const amounts = this.list.map((item) => item.FinalPrice);
+    const amounts = this.list.map((item) => item.FinalPrice * item.quantity);
     this.itemTotal = amounts.reduce((sum, item) => sum + item);
-    summaryElement.innerText = "$" + this.itemTotal;
+    summaryElement.innerText = '$' + this.itemTotal;
   },
   calculateOrdertotal: function () {
-    this.shipping = 10 + (this.list.length - 1) * 2;
+    // Quantity
+    let count = 0;
+
+    this.list.forEach((item) => {
+      count += item.quantity;
+    });
+
+    this.shipping = 10 + (count - 1) * 2;
     this.tax = (this.itemTotal * 0.06).toFixed(2);
     this.orderTotal = (
       parseFloat(this.itemTotal) +
@@ -63,14 +79,14 @@ const checkoutProcess = {
     this.displayOrderTotals();
   },
   displayOrderTotals: function () {
-    const shipping = document.querySelector(this.outputSelector + " #shipping");
-    const tax = document.querySelector(this.outputSelector + " #tax");
+    const shipping = document.querySelector(this.outputSelector + ' #shipping');
+    const tax = document.querySelector(this.outputSelector + ' #tax');
     const orderTotal = document.querySelector(
-      this.outputSelector + " #orderTotal"
+      this.outputSelector + ' #orderTotal'
     );
-    shipping.innerText = "$" + this.shipping;
-    tax.innerText = "$" + this.tax;
-    orderTotal.innerText = "$" + this.orderTotal;
+    shipping.innerText = '$' + this.shipping;
+    tax.innerText = '$' + this.tax;
+    orderTotal.innerText = '$' + this.orderTotal;
   },
   checkout: async function (form) {
     const json = formDataToJSON(form);
