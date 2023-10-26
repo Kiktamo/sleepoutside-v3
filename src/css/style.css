@@ -713,23 +713,23 @@ footer {
   gap: 20px;
 }
 
-.checkout-form label {
+/* .checkout-form label {
   grid-column: 1 / 2;
 }
 
 .checkout-form li {
   grid-column: 2 / 3;
-}
+} */
 
 .checkout-form fieldset {
   display: flex;
   flex-direction: column;
 }
 
-.checkout-form label,
+/* .checkout-form label,
 .checkout-form li {
   margin-bottom: 15px;
-}
+} */
 
 .checkout-form label {
   align-self: flex-start;
