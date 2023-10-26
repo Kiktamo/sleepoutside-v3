@@ -1,5 +1,5 @@
 import { qs } from './utils.mjs';
-import { getData, findProductById } from './productData.mjs';
+import { getProductsByCategory, findProductById } from './externalServices.mjs';
 import { renderListWithTemplate, renderWithTemplate } from './utils.mjs';
 
 export default async function productList(
@@ -9,7 +9,7 @@ export default async function productList(
   sortOrder = 'asc'
 ) {
   const product_list = qs(selector);
-  const products = await getData(category);
+  const products = await getProductsByCategory(category);
 
   // Sort the products based on the provided key and order
   sortProducts(products, sortKey, sortOrder);
