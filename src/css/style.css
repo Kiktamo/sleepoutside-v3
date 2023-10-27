@@ -157,6 +157,13 @@ button {
   }
 }
 
+@keyframes cartShake {
+  0% { transform: translate(0, 0) rotate(0); }
+  25% { transform: translate(2px, 2px) rotate(5deg); }
+  50% { transform: translate(-2px, -2px) rotate(-5deg); }
+  75% { transform: translate(2px, 2px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
 
 /* Cart icon styles */
 .cart {
@@ -182,6 +189,7 @@ button {
   border-radius: 50%;
   padding: 2px 4px; /* Adjust padding as needed */
   animation: none;
+  pointer-events: none
 }
 
 /* End cart icon styles */
