@@ -54,9 +54,14 @@ function renderProductDetails(product) {
   productName.textContent = product.Name;
   productNameWithoutBrand.textContent = product.NameWithoutBrand;
   productImage.src = product.Images.PrimaryLarge;
-  productImage.setAttribute('srcset', 
-  `${product.Images.PrimarySmall} 80w, ${product.Images.PrimaryMedium} 160w, ${product.Images.PrimaryLarge} 320w, ${product.Images.PrimaryExtraLarge} 600w`);
-  productImage.setAttribute('sizes', '(max-width: 400px) 80px, (max-width: 600px) 160px,(max-width: 1000px) 320px, 600px');
+  productImage.setAttribute(
+    'srcset',
+    `${product.Images.PrimarySmall} 80w, ${product.Images.PrimaryMedium} 160w, ${product.Images.PrimaryLarge} 320w, ${product.Images.PrimaryExtraLarge} 600w`
+  );
+  productImage.setAttribute(
+    'sizes',
+    '(max-width: 400px) 80px, (max-width: 600px) 160px,(max-width: 1000px) 320px, 600px'
+  );
   productImage.alt = product.Name;
 
   // Determine discount if there's a difference between the final price and list price.

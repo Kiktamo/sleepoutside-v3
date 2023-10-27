@@ -158,11 +158,21 @@ button {
 }
 
 @keyframes cartShake {
-  0% { transform: translate(0, 0) rotate(0); }
-  25% { transform: translate(2px, 2px) rotate(5deg); }
-  50% { transform: translate(-2px, -2px) rotate(-5deg); }
-  75% { transform: translate(2px, 2px) rotate(5deg); }
-  100% { transform: translate(0, 0) rotate(0); }
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  25% {
+    transform: translate(2px, 2px) rotate(5deg);
+  }
+  50% {
+    transform: translate(-2px, -2px) rotate(-5deg);
+  }
+  75% {
+    transform: translate(2px, 2px) rotate(5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
 }
 
 /* Cart icon styles */
@@ -189,7 +199,7 @@ button {
   border-radius: 50%;
   padding: 2px 4px; /* Adjust padding as needed */
   animation: none;
-  pointer-events: none
+  pointer-events: none;
 }
 
 /* End cart icon styles */
@@ -276,13 +286,13 @@ button {
   }
 }
 
-@media screen and (max-width:990px) {
-  header { 
-    flex-wrap: wrap;  
+@media screen and (max-width: 990px) {
+  header {
+    flex-wrap: wrap;
   }
-  .search-bar { 
+  .search-bar {
     order: 3;
-    flex-basis: 100%; 
+    flex-basis: 100%;
   }
 }
 
@@ -365,8 +375,8 @@ button {
   max-width: 500px;
   align-items: center;
   justify-content: center;
-  
-  & *{
+
+  & * {
     margin: auto;
     text-align: center;
   }

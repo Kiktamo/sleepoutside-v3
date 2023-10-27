@@ -15,7 +15,7 @@ export default function updateCartCount(animate = false) {
   let cartCountEl =
     cartElement.querySelector('.cart-count') || document.createElement('span');
   cartCountEl.classList.add('cart-count');
-  const cartIcon = cartElement.querySelector('svg')
+  const cartIcon = cartElement.querySelector('svg');
 
   if (animate) {
     // Add a class to trigger the animation
