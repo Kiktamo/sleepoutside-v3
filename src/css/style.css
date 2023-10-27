@@ -629,3 +629,14 @@ button {
 .category-list figcaption {
   text-align: center;
 }
+
+/* Cart Page CSS for non products */
+.cart-footer {
+  display: flex;
+  align-items: normal;
+  padding: 0 0.5rem;
+}
+
+.cart-footer button {
+  margin: 0.5rem 0.5rem;
+}
