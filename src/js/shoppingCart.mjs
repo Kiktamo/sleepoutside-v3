@@ -110,17 +110,20 @@ export default function ShoppingCart() {
 
 function cartItemTemplate(product) {
   const baseTemplate = `<li class="cart-card divider">
-    <span class="remove-product" data-id="${product.Id}">remove</span>
     <a href="#" class="cart-card__image">
       <img
         src="${product.Images.PrimaryMedium}"
+        srcset="${product.Images.PrimarySmall} 80w, ${product.Images.PrimaryMedium} 160w, ${product.Images.PrimaryLarge} 320w, ${product.Images.PrimaryExtraLarge} 600w"
+        sizes="(max-width: 320px) 80px,
+        (max-width: 600px) 160px,
+        (max-width: 2000px) 320px,
+        600px"
         alt="${product.Name}"
       />
     </a>
-    <a href="#">
-      <h2 class="card__name">${product.Name}</h2>
-    </a>
+    <h2 class="card__name">${product.Name}</h2>
     <p class="cart-card__color">${product.Colors[0].ColorName}</p>
+    <i class="fa-solid fa-trash-can remove-product" data-id="${product.Id}"></i>
     <p class="cart-card__quantity">qty: <span data-id="${product.Id}" class="decrease-quantity">-</span> ${product.quantity} <span data-id="${product.Id}" class="increase-quantity">+</span></p>
     <p class="cart-card__price">$${product.FinalPrice}`;
 
