@@ -33,7 +33,7 @@ function productCardTemplate(product) {
   <img
     src="${product.Images.PrimaryMedium}"
     srcset="${product.Images.PrimarySmall} 80w, ${product.Images.PrimaryMedium} 160w, ${product.Images.PrimaryLarge} 320w, ${product.Images.PrimaryExtraLarge} 600w"
-    sizes="(max-width: 320px) 80px,
+    sizes="(max-width: 400px) 80px,
     (max-width: 600px) 160px,
     (max-width: 2000px) 320px,
     600px"

@@ -369,7 +369,7 @@ button {
   grid-column: 1;
 }
 
-.cart-card .card__name {
+.cart-card a .card__name {
   grid-row: 1;
   grid-column: 2;
 }
@@ -442,6 +442,9 @@ button {
   .cart-card {
     font-size: inherit;
     grid-template-columns: 150px auto 25%;
+  }
+  .cart-card a .card__name {
+    text-align: left;
   }
 }
 
