@@ -650,3 +650,70 @@ button {
 .cart-footer button {
   margin: 0.5rem 0.5rem;
 }
+
+/* Checkout form layout */
+.checkout-form {
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.checkout-summary li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.checkout-summary li:last-child {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Order Summary */
+
+.checkout-summary ul {
+  padding-left: 0px;
+  margin: 0px;
+}
+
+.checkout-summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.checkout-summary li:last-child {
+  border-bottom: none;
+  font-weight: bold;
+}
+
+.checkout-form {
+  padding: 0.5em;
+}
+.checkout-form label {
+  display: block;
+}
+
+.checkout-form fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-form label {
+  align-self: flex-start;
+}
+
+.checkout-form li {
+  align-self: flex-end;
+}
+
+.checkout-summary label,
+.checkout-summary p {
+  margin: 0;
+}
