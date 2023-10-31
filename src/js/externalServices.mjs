@@ -10,6 +10,7 @@ async function convertToJson(res) {
   } catch (error) {
     // Handle any errors that occur during parsing or processing
     console.error(error);
+    throw error; // throw it again to propagate and handle upstream
   }
 }
 
