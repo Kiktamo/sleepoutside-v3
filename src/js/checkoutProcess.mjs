@@ -1,4 +1,4 @@
-import { getLocalStorage } from './utils.mjs';
+import { setLocalStorage, getLocalStorage } from './utils.mjs';
 import { checkout } from './externalServices.mjs';
 
 function formDataToJSON(formElement) {
@@ -38,6 +38,10 @@ const checkoutProcess = {
     this.outputSelector = outputSelector;
     this.list = getLocalStorage(key);
     this.calculateItemSummary();
+  },
+  finish: function () {
+    // empty cart
+    setLocalStorage(this.key, []);
   },
   calculateItemSummary: function () {
     const summaryElement = document.querySelector(
@@ -100,6 +104,9 @@ const checkoutProcess = {
     try {
       const res = await checkout(json);
       console.log(res);
+
+      window.location.href = `./success.html`;
+      this.finish();
     } catch (err) {
       console.log(err);
     }
