@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from './utils.mjs';
+import { setLocalStorage, getLocalStorage, alertMessage } from './utils.mjs';
 import { checkout } from './externalServices.mjs';
 
 function formDataToJSON(formElement) {
@@ -105,10 +105,24 @@ const checkoutProcess = {
       const res = await checkout(json);
       console.log(res);
 
-      window.location.href = `./success.html`;
+      window.location.href = `./success.html?order=${encodeURIComponent(
+        res.orderId
+      )}`;
       this.finish();
     } catch (err) {
       console.log(err);
+      // err.message.forEach((element) => {
+      //   alertMessage(element.toString());
+      // });
+      if (typeof err.message === 'object') {
+        for (const key in err.message) {
+          if (err.message.hasOwnProperty(key)) {
+            const element = err.message[key];
+            // Here, 'key' is the property name, and 'element' is the value.
+            alertMessage(element);
+          }
+        }
+      }
     }
   },
 };

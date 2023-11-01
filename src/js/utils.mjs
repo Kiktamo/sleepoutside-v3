@@ -94,3 +94,32 @@ export async function loadHeaderFooter() {
 
   renderWithTemplate(footerTemplateFn, footerEl);
 }
+
+export function alertMessage(message, scroll = true) {
+  // Create an element to hold our alert
+  const main = document.querySelector('main');
+  const alert = document.createElement('div');
+
+  // Add a class to style the alert
+  alert.classList.add('alert');
+
+  // Set the contents. You should have a message and an X or something the user can click on to remove
+  alert.innerHTML = `${message} <span class="close">X</span>`;
+
+  // Add a listener to the alert to see if they clicked on the X
+  // If they did, then remove the alert
+  alert.addEventListener('click', function (e) {
+    if (e.target.tagName === 'SPAN' && e.target.innerText === 'X') {
+      main.removeChild(this);
+    }
+  });
+
+  // Add the alert to the top of main
+  main.prepend(alert);
+
+  // Make sure they see the alert by scrolling to the top of the window
+  // We may not always want to do this, so default to scroll=true, but allow it to be passed in and overridden.
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
+}
