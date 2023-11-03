@@ -717,3 +717,57 @@ button {
 .checkout-summary p {
   margin: 0;
 }
+
+/*Image Carousels */
+
+.image-carousel {
+  position: relative;
+  margin: 10px auto;
+  max-width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.image-carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: bolder;
+  z-index: 1;
+
+  &:hover {
+    background-color: var(--dark-grey);
+  }
+}
+
+.image-carousel .prev {
+  left: 0;
+}
+
+.image-carousel .next {
+  right: 0;
+}
+
+.image-carousel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.image-carousel li {
+  display: inline-block;
+  width: calc(100% - 30px);
+  height: 50%;
+  margin: auto 10px;
+}
+
+.image-carousel img {
+  width: 100%;
+  height: auto;
+}
