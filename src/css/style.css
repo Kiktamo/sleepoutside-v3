@@ -718,6 +718,31 @@ button {
   margin: 0;
 }
 
+/* Style for the error alert container */
+.alert {
+  background-color: #f44336; /* Red background color */
+  color: white; /* White text color */
+  padding: 15px; /* Padding around the content */
+  margin: 10px 0; /* Margin between alerts */
+  border-radius: 5px; /* Rounded corners */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style for the close button inside the alert */
+.alert .close {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Hover effect for the close button */
+.alert .close:hover {
+  color: black; /* Change text color on hover */
+}
+
 /*Image Carousels */
 
 .image-carousel {
