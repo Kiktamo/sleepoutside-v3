@@ -1,8 +1,8 @@
 import { qs } from './utils.mjs';
 import { getProductsByCategory, findProductById } from './externalServices.mjs';
 import { renderListWithTemplate, renderWithTemplate } from './utils.mjs';
-import './setupCarousel.mjs';
-import setupCarousel from './setupCarousel.mjs';
+import './carousel.mjs';
+import { setupCarousel } from './carousel.mjs';
 
 export default async function productList(
   selector,
@@ -113,8 +113,8 @@ function productQuicklookTemplate(product) {
   if (product.Images.ExtraImages) {
     imageTemplate = `
     <div class="image-carousel">
-      <button class="prev">&lt;</button>
-      <button class="next">&gt;</button>
+    <button class="prev slide"><i class="fa-solid fa-arrow-left"></i></button>
+    <button class="next slide"><i class="fa-solid fa-arrow-right"></i></button>
       <ul>
       <li><img src="${product.Images.PrimaryMedium}" alt="${product.Name}" /></li>`;
 
@@ -122,8 +122,12 @@ function productQuicklookTemplate(product) {
       imageTemplate += `<li><img src="${image.Src}" alt="${image.Title}"></li>`;
     });
 
-    imageTemplate += `</ul>
-    </div>`;
+    imageTemplate += `</ul><div class="dots">`;
+
+    for (let i = 0; i < product.Images.ExtraImages.length + 1; i++) {
+      imageTemplate += `<button class="dot" data-index="${i}"></button>`;
+    }
+    imageTemplate += `</div></div>`;
   } else {
     imageTemplate = `<img id="productImage" class="img-small" src="${product.Images.PrimaryMedium}" alt="${product.Name}" />`;
   }

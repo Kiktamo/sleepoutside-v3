@@ -1,7 +1,7 @@
 import { setLocalStorage, getLocalStorage } from './utils.mjs';
 import { findProductById } from './externalServices.mjs';
 import updateCartCount from './updateCartCount.mjs';
-import setupCarousel from './setupCarousel.mjs';
+import { setupCarousel, updateCarousel } from './carousel.mjs';
 
 // This variable will store the current product data
 let currentProduct;
@@ -68,9 +68,22 @@ function renderProductDetails(product) {
   if (product.Images.ExtraImages) {
     const carousel = document.createElement('div');
     carousel.classList.add('image-carousel');
+
+    // Create dots
+    const dotsContainer = document.createElement('div');
+    dotsContainer.classList.add('dots');
+
+    for (let i = 0; i < product.Images.ExtraImages.length + 1; i++) {
+      const dot = document.createElement('button');
+      dot.classList.add('dot');
+      dot.dataset.index = i;
+
+      dotsContainer.appendChild(dot);
+    }
+
     let carouselTemplate = `
-      <button class="prev">&lt;</button>
-      <button class="next">&gt;</button>
+      <button class="prev slide"><i class="fa-solid fa-arrow-left"></i></button>
+      <button class="next slide"><i class="fa-solid fa-arrow-right"></i></button>
       <ul>
       <li><img src="${product.Images.PrimaryLarge}" 
       srcset="${product.Images.PrimarySmall} 80w, ${product.Images.PrimaryMedium} 160w, ${product.Images.PrimaryLarge} 320w, ${product.Images.PrimaryExtraLarge} 600w"
@@ -85,6 +98,8 @@ function renderProductDetails(product) {
     </div>`;
 
     carousel.innerHTML = carouselTemplate;
+    carousel.appendChild(dotsContainer);
+
     productImage.replaceWith(carousel);
     setupCarousel();
   }
