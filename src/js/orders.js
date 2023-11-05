@@ -7,5 +7,5 @@ const page = getParam('page');
 loadHeaderFooter();
 
 if (page) {
-    currentOrders('.orders-list', token, page);
+  currentOrders('.orders-list', token, page);
 } else currentOrders('.orders-list', token, 1);

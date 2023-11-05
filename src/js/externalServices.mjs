@@ -52,7 +52,7 @@ export async function getOrders(token) {
   const options = {
     method: 'GET',
     headers: {
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
   return await fetch(baseURL + 'orders', options).then(convertToJson);
