@@ -1,5 +1,5 @@
 import { qs } from './utils.mjs';
-import { getProductsByCategory } from './externalServices.mjs';
+import { getAllProducts } from './externalServices.mjs';
 import { renderListWithTemplate } from './utils.mjs';
 
 export default async function productSearch(selector, query) {
@@ -47,17 +47,7 @@ function productCardTemplate(product) {
 }
 
 async function buildProductList(query) {
-  // Define the categories
-  const categories = ['tents', 'backpacks', 'sleeping-bags', 'hammocks'];
-
-  // Create an array to store products
-  const allProducts = [];
-
-  // Loop through each category and fetch products
-  for (const category of categories) {
-    const products = await getProductsByCategory(category);
-    allProducts.push(...products);
-  }
+  const allProducts = getAllProducts();
 
   // Use the filter method to filter products based on the query
   const filteredProducts = allProducts.filter((product) => {

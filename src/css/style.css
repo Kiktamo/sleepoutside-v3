@@ -819,3 +819,44 @@ button {
 .dot.active {
   background: var(--primary-color);
 }
+
+/* Recommended List */
+.recommended h3 {
+  text-align: center;
+}
+
+.recommended-list {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  height: max-content;
+  gap: 0.3rem;
+  padding: 0;
+}
+
+.recommended-list li {
+  min-width: 250px;
+  min-height: 350px;
+  margin: auto;
+}
+
+.recommended-list a {
+  margin: auto;
+  display: grid;
+  min-height: 350px;
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
+.recommended-list a img {
+  margin: auto;
+}
+
+@media screen and (min-width: 800px) {
+  .recommended-list {
+    flex-flow: row;
+    justify-content: space-around;
+  }
+}
