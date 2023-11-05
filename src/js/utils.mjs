@@ -123,3 +123,14 @@ export function alertMessage(message, scroll = true) {
     window.scrollTo(0, 0);
   }
 }
+
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement),
+    convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+
+  return convertedJSON;
+}

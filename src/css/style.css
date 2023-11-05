@@ -205,6 +205,24 @@ button {
 
 /* End cart icon styles */
 
+/* User icon styles */
+.user {
+  padding-top: 1em;
+  position: relative;
+  text-align: center;
+}
+
+.user a {
+  width: 25px;
+  text-decoration: none;
+  color: black;
+  font-size: var(--large-font);
+}
+.user:hover a {
+  color: gray;
+}
+/* End user icon styles */
+
 /* Start Product Styles */
 .products {
   padding: 0.5em;
@@ -818,4 +836,17 @@ button {
 
 .dot.active {
   background: var(--primary-color);
+}
+
+.page-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: auto;
+}
+
+.page-list li a {
+  text-decoration: none;
 }
