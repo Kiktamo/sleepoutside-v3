@@ -1,6 +1,8 @@
 import { qs } from './utils.mjs';
 import { getProductsByCategory, findProductById } from './externalServices.mjs';
 import { renderListWithTemplate, renderWithTemplate } from './utils.mjs';
+import './carousel.mjs';
+import { setupCarousel } from './carousel.mjs';
 
 export default async function productList(
   selector,
@@ -97,6 +99,8 @@ async function toggleQuicklook(productId, display) {
       .addEventListener('click', (event) => {
         toggleQuicklook(productId, false);
       });
+
+    setupCarousel();
   } else {
     // Hide the modal
     elQuicklookModal.setAttribute('class', 'product-modal hidden');
@@ -105,13 +109,34 @@ async function toggleQuicklook(productId, display) {
 }
 
 function productQuicklookTemplate(product) {
+  let imageTemplate = '';
+  if (product.Images.ExtraImages) {
+    imageTemplate = `
+    <div class="image-carousel">
+    <button class="prev slide"><i class="fa-solid fa-arrow-left"></i></button>
+    <button class="next slide"><i class="fa-solid fa-arrow-right"></i></button>
+      <ul>
+      <li><img src="${product.Images.PrimaryMedium}" alt="${product.Name}" /></li>`;
+
+    product.Images.ExtraImages.forEach((image) => {
+      imageTemplate += `<li><img src="${image.Src}" alt="${image.Title}"></li>`;
+    });
+
+    imageTemplate += `</ul><div class="dots">`;
+
+    for (let i = 0; i < product.Images.ExtraImages.length + 1; i++) {
+      imageTemplate += `<button class="dot" data-index="${i}"></button>`;
+    }
+    imageTemplate += `</div></div>`;
+  } else {
+    imageTemplate = `<img id="productImage" class="img-small" src="${product.Images.PrimaryMedium}" alt="${product.Name}" />`;
+  }
+
   const baseTemplate = `
   <span class="close-modal">X</span>
   <section class="product-quicklook">
   <h4 class="divider" id="productName">${product.Brand.Name} - ${product.NameWithoutBrand}</h2>
-
-  <img id="productImage" class="img-small" src="${product.Images.PrimaryMedium}" alt="${product.Name}" />
-
+  ${imageTemplate}
   <p class="product-card__price divider-top" id="productFinalPrice">`;
 
   const endTemplate = `
