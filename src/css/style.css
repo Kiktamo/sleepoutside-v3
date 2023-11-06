@@ -845,8 +845,61 @@ button {
   justify-content: center;
   gap: 0.5rem;
   margin: auto;
+  padding-bottom: 1rem;
 }
 
 .page-list li a {
   text-decoration: none;
+}
+
+.orders-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.order-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: space-evenly;
+  width: 500px;
+  margin: 0.25em;
+  padding: 0.5em;
+  border: 1px solid var(--light-grey);
+}
+
+.order-card h2 {
+  flex-grow: 2;
+  flex-basis: 100%;
+}
+
+.order-card p{
+  font-size: var(--small-font);
+  display: inline;
+  overflow: hidden;
+}
+
+.order__date {
+  flex-basis: 40%;
+}
+
+.order__total {
+  flex-basis: 40%;
+}
+
+.order-items {
+  list-style: none;
+  flex-basis: 100%;
+  padding: 0;
+}
+
+.order-items li {
+  display: grid;
+  margin: 0.25em;
+  padding: 0.5em;
+  border: 1px solid var(--light-grey);
 }

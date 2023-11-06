@@ -3,7 +3,7 @@ import { checkLogin } from './auth.mjs';
 import currentOrders from './currentOrders.mjs';
 
 const token = await checkLogin();
-const page = getParam('page');
+const page = Number(getParam('page'));
 loadHeaderFooter();
 
 if (page) {
