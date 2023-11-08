@@ -676,6 +676,7 @@ button {
 /* Cart Page CSS for non products */
 .cart-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: normal;
   padding: 0 0.5rem;
 }
@@ -749,6 +750,10 @@ button {
 .checkout-summary label,
 .checkout-summary p {
   margin: 0;
+}
+
+.checkout-form button {
+  margin: 1rem auto;
 }
 
 /* Style for the error alert container */
