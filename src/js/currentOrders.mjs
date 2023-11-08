@@ -4,7 +4,7 @@ import { getOrders } from './externalServices.mjs';
 import { renderListWithTemplate } from './utils.mjs';
 
 export default async function currentOrders(selector, page = 1) {
-  const token = await  checkLogin();
+  const token = await checkLogin();
   const allOrders = await getOrders(token);
   const totalItems = allOrders.length;
   const orderList = qs(selector);
