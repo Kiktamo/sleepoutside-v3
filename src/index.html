@@ -8,8 +8,7 @@
     <script src="./js/main.js" type="module"></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   </head>
   <body>
     <header class="divider" id="main-header"></header>
@@ -18,8 +17,7 @@
         <img
           src="/images/banner-sm.jpg"
           srcset="images/banner-sm.jpg 500w, images/banner.jpg"
-          alt="image of a high mountain lake"
-        />
+          alt="image of a high mountain lake" />
         <div class="logo logo--square">
           <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
           <div>Sleep<span class="highlight">Outside</span></div>
@@ -41,64 +39,57 @@
       <section class="products">
         <ul class="category-list">
           <li>
-            <a href="product-list/index.html?category=tents"
-              ><figure>
+            <a href="product-list/index.html?category=tents"><figure>
                 <img
                   src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Tent_3544767.svg"
-                  alt="Tent Icon from Noun Project: Mustofa Bayu"
-                />
+                  alt="Tent Icon from Noun Project: Mustofa Bayu" />
               </figure>
-              <figcaption>Tents</figcaption></a
-            >
+              <figcaption>Tents</figcaption></a>
           </li>
 
           <li>
-            <a href="product-list/index.html?category=sleeping-bags"
-              ><figure>
+            <a href="product-list/index.html?category=sleeping-bags"><figure>
                 <img
                   src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Sleeping%20Bag_3544775.svg"
-                  alt="Sleeping Bag Icon from Noun Project: Mustofa Bayu"
-                />
+                  alt="Sleeping Bag Icon from Noun Project: Mustofa Bayu" />
               </figure>
-              <figcaption>Sleeping Bags</figcaption></a
-            >
+              <figcaption>Sleeping Bags</figcaption></a>
           </li>
 
           <li>
-            <a href="product-list/index.html?category=backpacks"
-              ><figure>
+            <a href="product-list/index.html?category=backpacks"><figure>
                 <img
                   src="https://byui-cit.github.io/wdd330/images/category-icons/noun_carrier%20bag_3544771.svg"
-                  alt="Backpack Icon from Noun Project: Mustofa Bayu"
-                />
+                  alt="Backpack Icon from Noun Project: Mustofa Bayu" />
               </figure>
-              <figcaption>Backpacks</figcaption></a
-            >
+              <figcaption>Backpacks</figcaption></a>
           </li>
 
           <li>
-            <a href="product-list/index.html?category=hammocks"
-              ><figure>
+            <a href="product-list/index.html?category=hammocks"><figure>
                 <img
                   src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Hammock_791143.svg"
-                  alt="Hammock Icon from Noun Project: Paul Richard"
-                />
+                  alt="Hammock Icon from Noun Project: Paul Richard" />
               </figure>
-              <figcaption>Hammocks</figcaption></a
-            >
+              <figcaption>Hammocks</figcaption></a>
           </li>
         </ul>
       </section>
-      <div class="container">
+      <div id="newsletterSection">
         <div class="header">
-            <h1>Subscribe to Our Newsletter</h1>
+          <h1>Subscribe to Our Newsletter</h1>
         </div>
         <div class="content">
-            <p>Stay updated with our latest news and offers. Sign up for our newsletter today!</p>
-            <input type="email" placeholder="Enter your email" required>
-            <a href="#" class="button">Sign Up</a>
+          <p>Stay updated with our latest news and offers. Sign up for our
+            newsletter today!</p>
+          <input type="email" id="emailInput" placeholder="Enter your email"
+            required>
+          <a href="#" class="button" id="signupButton">Sign Up</a>
+          <a href="#" class="button" id="optOutButton">Opt Out</a>
+          <div id="message" class="hidden"></div>
         </div>
-    </div>
+      </div>
+
     </main>
     <footer id="main-footer"></footer>
   </body>

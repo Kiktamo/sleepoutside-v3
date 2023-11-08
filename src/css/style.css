@@ -821,7 +821,7 @@ button {
 }
 
 /* Newsletter Section */
-.container {
+#newsletterSection {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -855,10 +855,6 @@ input[type='email'] {
   transition: background-color 0.3s;
 }
 
-input[type='email']:invalid {
-  background-color: #ff85a1;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
   .container {
@@ -873,4 +869,15 @@ input[type='email']:invalid {
   .button {
     width: 100%;
   }
+}
+
+/* New styles for form validation and messages */
+.hidden {
+  display: none;
+}
+
+.error-message {
+  font-weight: bold;
+  background-color: red;
+  color: white;
 }
