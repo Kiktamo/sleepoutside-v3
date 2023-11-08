@@ -1,16 +1,6 @@
 import { setLocalStorage, getLocalStorage, alertMessage } from './utils.mjs';
 import { checkout } from './externalServices.mjs';
-
-function formDataToJSON(formElement) {
-  const formData = new FormData(formElement),
-    convertedJSON = {};
-
-  formData.forEach(function (value, key) {
-    convertedJSON[key] = value;
-  });
-
-  return convertedJSON;
-}
+import { formDataToJSON } from './utils.mjs';
 
 function packageItems(items) {
   const simplifiedItems = items.map((item) => {

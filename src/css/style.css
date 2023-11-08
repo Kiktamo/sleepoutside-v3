@@ -205,6 +205,24 @@ button {
 
 /* End cart icon styles */
 
+/* User icon styles */
+.user {
+  padding-top: 1em;
+  position: relative;
+  text-align: center;
+}
+
+.user a {
+  width: 25px;
+  text-decoration: none;
+  color: black;
+  font-size: var(--large-font);
+}
+.user:hover a {
+  color: gray;
+}
+/* End user icon styles */
+
 /* Start Product Styles */
 .products {
   padding: 0.5em;
@@ -858,5 +876,101 @@ button {
   .recommended-list {
     flex-flow: row;
     justify-content: space-around;
+  }
+}
+
+.page-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+
+.page-list li a {
+  text-decoration: none;
+}
+
+.orders-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.order-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: space-evenly;
+  width: 500px;
+  margin: 0.25em;
+  padding: 0.5em;
+  border: 1px solid var(--light-grey);
+}
+
+.order-card h2 {
+  flex-grow: 2;
+  flex-basis: 100%;
+}
+
+.order-card p {
+  font-size: var(--small-font);
+  display: inline;
+  overflow: hidden;
+}
+
+.order__date {
+  flex-basis: 40%;
+}
+
+.order__total {
+  flex-basis: 40%;
+}
+
+.order-items {
+  list-style: none;
+  flex-basis: 100%;
+  padding: 0;
+}
+
+.order-items li {
+  display: grid;
+  margin: 0.25em;
+  padding: 0.5em;
+  border: 1px solid var(--light-grey);
+}
+
+.login-form {
+  max-width: 80%;
+  margin: 1rem auto;
+}
+
+.login-form fieldset {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+
+.login-form label {
+  max-width: 80%;
+}
+
+.login-form button {
+  margin-top: 0.5rem;
+}
+
+.login-form input {
+  max-width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 700px) {
+  .login-form {
+    max-width: 50%;
   }
 }

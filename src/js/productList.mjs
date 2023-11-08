@@ -1,7 +1,6 @@
 import { qs } from './utils.mjs';
 import { getProductsByCategory, findProductById } from './externalServices.mjs';
 import { renderListWithTemplate, renderWithTemplate } from './utils.mjs';
-import './carousel.mjs';
 import { setupCarousel } from './carousel.mjs';
 
 export default async function productList(
