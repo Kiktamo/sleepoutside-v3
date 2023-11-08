@@ -877,7 +877,7 @@ button {
   flex-basis: 100%;
 }
 
-.order-card p{
+.order-card p {
   font-size: var(--small-font);
   display: inline;
   overflow: hidden;
@@ -902,4 +902,34 @@ button {
   margin: 0.25em;
   padding: 0.5em;
   border: 1px solid var(--light-grey);
+}
+
+.login-form {
+  max-width: 80%;
+  margin: 1rem auto;
+}
+
+.login-form fieldset {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+
+.login-form label {
+  max-width: 80%;
+}
+
+.login-form button {
+  margin-top: 0.5rem;
+}
+
+.login-form input {
+  max-width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 700px) {
+  .login-form {
+    max-width: 50%;
+  }
 }
