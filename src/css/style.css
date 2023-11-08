@@ -806,13 +806,13 @@ button {
 
 .image-carousel li {
   display: inline-block;
-  width: calc(100% - 30px);
+  width: calc(100% - 20px);
   height: 50%;
   margin: auto 10px;
 }
 
 .image-carousel img {
-  width: 100%;
+  width: calc(100% - 30px);
   height: auto;
 }
 
