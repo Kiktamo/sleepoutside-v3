@@ -1,11 +1,9 @@
 import { loadHeaderFooter, getParam } from './utils.mjs';
-import { checkLogin } from './auth.mjs';
 import currentOrders from './currentOrders.mjs';
 
-const token = await checkLogin();
 const page = Number(getParam('page'));
 loadHeaderFooter();
 
 if (page) {
-  currentOrders('.orders-list', token, page);
-} else currentOrders('.orders-list', token, 1);
+  currentOrders('.orders-list', page);
+} else currentOrders('.orders-list', 1);

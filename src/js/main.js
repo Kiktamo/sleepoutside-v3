@@ -4,4 +4,4 @@ import { loadHeaderFooter } from './utils.mjs';
 
 loadHeaderFooter();
 loadBanner();
-loadAlerts();
+// loadAlerts();
