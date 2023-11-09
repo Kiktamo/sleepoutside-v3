@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+  
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+      <title>Sleep Outside | Signup</title>
+  
+      <link rel="stylesheet" href="/css/style.css" />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      />
+      <script src="../js/signup.js" type="module"></script>
+    </head>
+  <body>
+    <header class="divider" id="main-header"></header>
+    <main class="divider">
+      <section class="signup-form">
+        <form name="signup" id="signup-form">
+          <fieldset>
+            <legend>Sign Up</legend>
+            <label for="email">Email (Username)</label>
+            <input name="email" id="email" type="email" required />
+            <label for="password">Password</label>
+            <input name="password" id="password" type="password" required />
+            <label for="passwordConfirmation">Password Confirmation (Required)</label>
+            <input name="passwordConfirmation" id="passwordConfirmation" type="password" required />
+            <label for="fullName">Full Name (Optional)</label>
+            <input name="fullName" id="fullName" type="text" />
+            <label for="address">Address (Optional)</label>
+            <input name="address" id="address" type="text" />
+          </fieldset>
+          <button id="signupSubmit" type="submit">Sign Up</button>
+        </form>
+      </section>
+    </main>
+    <footer id="main-footer"></footer>
+  </body>
+</html>

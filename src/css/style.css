@@ -992,4 +992,33 @@ button {
   .login-form {
     max-width: 50%;
   }
+
+  .signup-form {
+    max-width: 50%;
+  }
+}
+
+/* these all duplicate login-form */
+.signup-form {
+  max-width: 80%;
+  margin: 1rem auto;
+}
+
+.signup-form fieldset {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+
+.signup-form label {
+  max-width: 80%;
+}
+
+.signup-form button {
+  margin-top: 0.5rem;
+}
+
+.signup-form input {
+  max-width: 80%;
+  margin-bottom: 0.5rem;
 }
