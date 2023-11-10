@@ -44,14 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
       //       address,
       //     }),
       //   });
-      const json = formDataToJSON(form);
+      const json = formDataToJSON(signupForm);
       console.log(json);
       try {
         const res = await signup(json);
         console.log(res);
 
-        window.location.href = `./success.html?order=${encodeURIComponent(
-          res.orderId
+        window.location.href = `./success.html?message=${encodeURIComponent(
+          res.message
         )}`;
         this.finish();
       } catch (err) {

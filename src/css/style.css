@@ -1030,3 +1030,7 @@ form #signup {
   max-width: 80%;
   margin-bottom: 0.5rem;
 }
+
+.success {
+  margin-left: 20px;
+}
