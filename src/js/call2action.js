@@ -11,5 +11,6 @@ export default function loadBanner() {
   // Add click handler to close banner
   document.getElementById('register').addEventListener('click', () => {
     document.getElementById('register-banner').classList.add('hidden');
+    window.location.href = '/signup/index.html';
   });
 }

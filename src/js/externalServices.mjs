@@ -73,3 +73,14 @@ export async function getOrders(token) {
   };
   return await fetch(baseURL + 'orders', options).then(convertToJson);
 }
+
+export async function signup(payload) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  };
+  return await fetch(baseURL + 'users', options).then(convertToJson);
+}
