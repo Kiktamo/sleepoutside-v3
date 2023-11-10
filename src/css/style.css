@@ -967,6 +967,8 @@ button {
 .login-form {
   max-width: 80%;
   margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-form fieldset {
@@ -986,6 +988,12 @@ button {
 .login-form input {
   max-width: 80%;
   margin-bottom: 0.5rem;
+}
+
+form #signup {
+  /* margin-left: auto;
+  margin-bottom: 10px; */
+  margin: 20px;
 }
 
 @media screen and (min-width: 700px) {
