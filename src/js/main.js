@@ -4,6 +4,7 @@ import { loadHeaderFooter } from './utils.mjs';
 
 loadHeaderFooter();
 loadBanner();
+<<<<<<< HEAD
 loadAlerts();
 
 // Get form elements
@@ -113,3 +114,6 @@ function unsubscribeUser(email) {
     emailInput.value = ''; // Clear the input field
   }, 2000);
 }
+=======
+// loadAlerts();
+>>>>>>> da22138722b5bf48db2b535634e13ab63c93d0da

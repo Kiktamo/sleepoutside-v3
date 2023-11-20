@@ -26,6 +26,22 @@ export async function findProductById(id) {
   return data.Result;
 }
 
+export async function getAllProducts() {
+  // Define the categories
+  const categories = ['tents', 'backpacks', 'sleeping-bags', 'hammocks'];
+
+  // Create an array to store products
+  const allProducts = [];
+
+  // Loop through each category and fetch products
+  for (const category of categories) {
+    const products = await getProductsByCategory(category);
+    allProducts.push(...products);
+  }
+
+  return allProducts;
+}
+
 export async function checkout(payload) {
   const options = {
     method: 'POST',
@@ -35,4 +51,36 @@ export async function checkout(payload) {
     body: JSON.stringify(payload),
   };
   return await fetch(baseURL + 'checkout', options).then(convertToJson);
+}
+
+export async function loginRequest(creds) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(creds),
+  };
+  return await fetch(baseURL + 'login', options).then(convertToJson);
+}
+
+export async function getOrders(token) {
+  const options = {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  return await fetch(baseURL + 'orders', options).then(convertToJson);
+}
+
+export async function signup(payload) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  };
+  return await fetch(baseURL + 'users', options).then(convertToJson);
 }

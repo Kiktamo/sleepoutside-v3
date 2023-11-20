@@ -13,10 +13,12 @@ function renderCartSubtotal(cartItems) {
     subtotal += element.FinalPrice * element.quantity;
   });
 
+  subtotal = subtotal.toFixed(2);
+
   const cartTotal = document.querySelector('.cart-total');
 
   if (cartTotal) {
-    cartTotal.innerHTML = `Total: ${subtotal.toFixed(2)}`;
+    cartTotal.innerHTML = `Total: ${subtotal}`;
   } else {
     document
       .querySelector('.cart-footer')

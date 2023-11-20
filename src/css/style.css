@@ -205,6 +205,24 @@ button {
 
 /* End cart icon styles */
 
+/* User icon styles */
+.user {
+  padding-top: 1em;
+  position: relative;
+  text-align: center;
+}
+
+.user a {
+  width: 25px;
+  text-decoration: none;
+  color: black;
+  font-size: var(--large-font);
+}
+.user:hover a {
+  color: gray;
+}
+/* End user icon styles */
+
 /* Start Product Styles */
 .products {
   padding: 0.5em;
@@ -304,7 +322,16 @@ button {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+  min-width: 200px;
+  min-height: 300px;
 }
+
+.product-card img {
+  display: block;
+  margin: auto;
+  min-height: 50%;
+}
+
 .product-card h2,
 .product-card h3,
 .product-card p {
@@ -365,6 +392,7 @@ button {
 
 #addToCart {
   display: none;
+  margin: 1rem auto;
 }
 
 /* Start cart list card styles */
@@ -471,6 +499,7 @@ button {
 .quick-look {
   max-width: 20px;
   float: right;
+  z-index: 1;
 
   &:hover {
     filter: invert(50%);
@@ -597,33 +626,36 @@ button {
 /* Homepage Category List */
 .category-list {
   display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
-  grid-template-rows: auto;
-
+  grid-template-columns: auto;
   list-style: none;
-
+  gap: 1rem;
   padding: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .category-list {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 0.3rem;
+  }
 }
 
 .category-list li a {
   margin: auto;
-
   display: grid;
-
   grid-template-columns: auto;
-
   grid-template-rows: auto, auto;
-
   text-decoration: none;
-
   color: black;
 }
 
-.category-list li a img {
-  width: 200px;
+.category-list figure {
+  margin: auto;
+}
 
+.category-list li a img {
+  min-width: 150px;
+  max-width: 300px;
   margin: auto;
 }
 
@@ -644,6 +676,7 @@ button {
 /* Cart Page CSS for non products */
 .cart-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: normal;
   padding: 0 0.5rem;
 }
@@ -719,6 +752,10 @@ button {
   margin: 0;
 }
 
+.checkout-form button {
+  margin: 1rem auto;
+}
+
 /* Style for the error alert container */
 .alert {
   background-color: #f44336; /* Red background color */
@@ -788,13 +825,13 @@ button {
 
 .image-carousel li {
   display: inline-block;
-  width: calc(100% - 30px);
+  width: calc(100% - 20px);
   height: 50%;
   margin: auto 10px;
 }
 
 .image-carousel img {
-  width: 100%;
+  width: calc(100% - 30px);
   height: auto;
 }
 
@@ -820,6 +857,7 @@ button {
   background: var(--primary-color);
 }
 
+<<<<<<< HEAD
 /* Newsletter Section */
 #newsletterSection {
   max-width: 600px;
@@ -880,4 +918,182 @@ input[type='email'] {
   font-weight: bold;
   background-color: red;
   color: white;
+=======
+/* Recommended List */
+.recommended h3 {
+  text-align: center;
+}
+
+.recommended-list {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  height: max-content;
+  gap: 0.3rem;
+  padding: 0;
+}
+
+.recommended-list li {
+  min-width: 250px;
+  min-height: 350px;
+  margin: auto;
+}
+
+.recommended-list a {
+  margin: auto;
+  display: grid;
+  min-height: 350px;
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
+.recommended-list a img {
+  margin: auto;
+}
+
+@media screen and (min-width: 800px) {
+  .recommended-list {
+    flex-flow: row;
+    justify-content: space-around;
+  }
+}
+
+.page-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+
+.page-list li a {
+  text-decoration: none;
+}
+
+.orders-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.order-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: space-evenly;
+  width: 500px;
+  margin: 0.25em;
+  padding: 0.5em;
+  border: 1px solid var(--light-grey);
+}
+
+.order-card h2 {
+  flex-grow: 2;
+  flex-basis: 100%;
+}
+
+.order-card p {
+  font-size: var(--small-font);
+  display: inline;
+  overflow: hidden;
+}
+
+.order__date {
+  flex-basis: 40%;
+}
+
+.order__total {
+  flex-basis: 40%;
+}
+
+.order-items {
+  list-style: none;
+  flex-basis: 100%;
+  padding: 0;
+}
+
+.order-items li {
+  display: grid;
+  margin: 0.25em;
+  padding: 0.5em;
+  border: 1px solid var(--light-grey);
+}
+
+.login-form {
+  max-width: 80%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form fieldset {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+
+.login-form label {
+  max-width: 80%;
+}
+
+.login-form button {
+  margin-top: 0.5rem;
+}
+
+.login-form input {
+  max-width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+form #signup {
+  /* margin-left: auto;
+  margin-bottom: 10px; */
+  margin: 20px;
+}
+
+@media screen and (min-width: 700px) {
+  .login-form {
+    max-width: 50%;
+  }
+
+  .signup-form {
+    max-width: 50%;
+  }
+}
+
+/* these all duplicate login-form */
+.signup-form {
+  max-width: 80%;
+  margin: 1rem auto;
+}
+
+.signup-form fieldset {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+
+.signup-form label {
+  max-width: 80%;
+}
+
+.signup-form button {
+  margin-top: 0.5rem;
+}
+
+.signup-form input {
+  max-width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+.success {
+  margin-left: 20px;
+>>>>>>> da22138722b5bf48db2b535634e13ab63c93d0da
 }

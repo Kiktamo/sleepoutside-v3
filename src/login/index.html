@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sleep Outside | Login</title>
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="../js/login.js" type="module"></script>
+  </head>
+
+  <body>
+    <header class="divider" id="main-header"></header>
+
+    <main class="divider">
+      <section class="login-form">
+        <form name="login">
+          <fieldset>
+            <legend>Login</legend>
+            <label for="email">Username (email)</label>
+            <input name="email" id="email" type="email" required />
+            <label for="password">Password</label>
+            <input name="password" id="password" type="password" required />
+          </fieldset>
+          <button id="loginSubmit" type="submit">Login</button>
+          <!-- <button id="signup" type="button" onclick="window.location.href='/signup/index.html'">Sign Up</button> -->
+          <a href="/signup/index.html" id="signup">Sign Up</a>
+        </form>
+      </section>
+    </main>
+    <footer id="main-footer"></footer>
+  </body>
+</html>
